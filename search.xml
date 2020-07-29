@@ -294,4 +294,930 @@
         <tag>缓存与数据库一致性</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Java面试题</title>
+    <url>/2017/08/03/Java%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="一、Spring面试题"><a href="#一、Spring面试题" class="headerlink" title="一、Spring面试题"></a>一、Spring面试题</h2><h3 id="数据库设计三大范式？"><a href="#数据库设计三大范式？" class="headerlink" title="数据库设计三大范式？"></a>数据库设计三大范式？</h3><ul>
+<li>第一范式：每个列都不可以再拆分。</li>
+<li>第二范式：在第一范式的基础上，非主键列完全依赖于主键，而不能是依赖于主键的一部分。</li>
+<li>第三范式：在第二范式的基础上，非主键列只依赖于主键，不依赖于其他非主键</li>
+</ul>
+<h3 id="JAVA中PO，DTO，VO的区别？"><a href="#JAVA中PO，DTO，VO的区别？" class="headerlink" title="JAVA中PO，DTO，VO的区别？"></a>JAVA中PO，DTO，VO的区别？</h3><ul>
+<li>VO（value object：值对象） 通常用于业务层之间的数据传递，由new创建，由GC回收 和PO一样也是仅仅包含数据而已，但应是抽象出的业务对象，可以和表对应，也可以不是</li>
+<li>PO（persistant object：持久层对象） 是ORM(Objevt Relational Mapping)框架中Entity，PO属性和数据库中表的字段形成一一对应关系 VO和PO，都是属性加上属性的get和set方法；表面看没什么不同，但代表的含义是完全不同的</li>
+<li>DTO（data transfer object：数据传输对象） 是一种设计模式之间传输数据的软件应用系统，数据传输目标往往是数据访问对象从数据库中检索数据 数据传输对象与数据交互对象或数据访问对象之间的差异是一个以不具任何行为除了存储和检索的数据。简而言之，就是接口之间传递的数据封装</li>
+</ul>
+<h3 id="详细描述什么是Spring？"><a href="#详细描述什么是Spring？" class="headerlink" title="详细描述什么是Spring？"></a>详细描述什么是Spring？</h3><ul>
+<li>Spring是一个轻量级Java开发框架，目的是为了解决企业级应用开发的业务逻辑层和其他各层的耦合问题。</li>
+<li>Spring最根本的使命是解决企业级应用开发的复杂性，即简化Java开发。两个核心特性，也就是控制反转（IoC）和面向切面编程（AOP）。</li>
+</ul>
+<h3 id="什么是-Spring-IoC？"><a href="#什么是-Spring-IoC？" class="headerlink" title="什么是 Spring IoC？"></a>什么是 Spring IoC？</h3><ul>
+<li>控制反转即 IoC (Inversion of Control)，它把传统上由程序代码直接操控的对象的调用权交给容器，通过容器来实现对象组件的装配和管理。所谓的“控制反转”概念就是对组件对象控制权的转移，从程序代码本身转移到了外部容器。</li>
+<li>Spring IoC 负责创建对象，管理对象（通过依赖注入（DI），装配对象，配置对象，并且管理这些对象的整个生命周期。</li>
+</ul>
+<h3 id="什么是-Spring-AOP？描述其应用场景（最少2个）"><a href="#什么是-Spring-AOP？描述其应用场景（最少2个）" class="headerlink" title="什么是 Spring AOP？描述其应用场景（最少2个）"></a>什么是 Spring AOP？描述其应用场景（最少2个）</h3><ul>
+<li>AOP：一般称为面向切面编程，作为面向对象的一种补充，用于将那些与业务无关，但却对多个对象产生影响的公共行为和逻辑，抽取并封装为一个可重用的模块，这个模块被命名为“切面”，减少系统中的重复代码，降低了模块间的耦合度，同时提高了系统的可维护性。</li>
+<li>可用于权限认证、日志、事务处理等。</li>
+</ul>
+<h3 id="描述Spring-Bean的作用域？"><a href="#描述Spring-Bean的作用域？" class="headerlink" title="描述Spring Bean的作用域？"></a>描述Spring Bean的作用域？</h3><ul>
+<li>singleton : bean 在每个 Spring IoC 容器中只有一个实例。</li>
+<li>prototype：一个 bean 的定义可以有多个实例。</li>
+<li>request：每次 HTTP 请求都会创建一个 bean。</li>
+<li>session：在一个 HTTP Session 中，一个 bean 定义对应一个实例。</li>
+<li>global-session：在一个全局的 HTTP Session 中，一个 bean 定义对应一个实例。</li>
+<li>request，session，global-session 作用域仅在基于 web 的 Spring ApplicationContext 情形下有效。</li>
+</ul>
+<h3 id="Spring-注入有几种方式？"><a href="#Spring-注入有几种方式？" class="headerlink" title="Spring 注入有几种方式？"></a>Spring 注入有几种方式？</h3><ul>
+<li>Setter 注入</li>
+<li>构造器注入</li>
+<li>静态工厂方法注入</li>
+<li>实例工厂方法注入</li>
+</ul>
+<h3 id="SpringBean-生命周期？"><a href="#SpringBean-生命周期？" class="headerlink" title="SpringBean 生命周期？"></a>SpringBean 生命周期？</h3><ul>
+<li>Bean的定义——Bean的初 始化——Bean的使用——Bean的销毁</li>
+</ul>
+<h3 id="Spring-框架中用到了哪些设计模式？（不低于3个）"><a href="#Spring-框架中用到了哪些设计模式？（不低于3个）" class="headerlink" title="Spring 框架中用到了哪些设计模式？（不低于3个）"></a>Spring 框架中用到了哪些设计模式？（不低于3个）</h3><ul>
+<li>工厂模式：BeanFactory 就是简单工厂模式的体现，用来创建对象的实例；</li>
+<li>单例模式：Bean 默认为单例模式。</li>
+<li>代理模式：Spring 的 AOP 功能用到了 JDK 的动态代理和 CGLIB 字节码生成技术；</li>
+<li>观察者模式：定义对象键一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都会得到通知被制动更新，如 Spring 中 listener 的实现 – ApplicationListener。</li>
+<li>模板方法：用来解决代码重复的问题。比如：RestTemplate , JMSTemplate , JPATemplate。</li>
+</ul>
+<h3 id="描述-Spring-事务传播行为？"><a href="#描述-Spring-事务传播行为？" class="headerlink" title="描述 Spring 事务传播行为？"></a>描述 Spring 事务传播行为？</h3><ul>
+<li>Spring 事务传播行为：是当多个事务同时存在的时候，Spring 如何处理这些事务的行为。</li>
+<li>required：若当前没有事务，就创建一个新事务；反之，就加入该事务，该设置是最常用的设置。</li>
+<li>supports：支持当前事务，若当前存在事务，就加入该事务；反之，就以非事务执行。</li>
+<li>mandatory：支持当前事务，若当前存在事务，就加入该事务；反之，就抛出异常。</li>
+<li>requires_new：创建新事务，无论当前存不存在事务，都创建新事务。</li>
+<li>not_supported：以非事务方式执行操作，若当前存在事务，就把当前事务挂起。</li>
+<li>never：以非事务方式执行，若当前存在事务，则抛出异常。</li>
+<li>nested：若当前存在事务，则在嵌套事务内执行；反之，则按 REQUIRE属性执行。</li>
+</ul>
+<h3 id="描述-Spring-事务的隔离级别？"><a href="#描述-Spring-事务的隔离级别？" class="headerlink" title="描述 Spring 事务的隔离级别？"></a>描述 Spring 事务的隔离级别？</h3><ul>
+<li>default：用底层数据库的设置隔离级别；</li>
+<li>read_uncommitted：读未提交，最低隔离级别、事务未提交前，就可被其他事务读取（会出现幻读、脏读、不可重复读）；</li>
+<li>read_committed：读已提交，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读），SQL server 的默认级别；</li>
+<li>repeatable_read：可重复读，保证多次读取同一个数据时，其值都和事务开始时候的内容是一致，禁止读取到别的事务未提交的数据（会造成幻读），MySQL 的默认级别；</li>
+<li>serializable：序列化，代价最高最可靠的隔离级别，该隔离级别能防止脏读、不可重复读、幻读</li>
+</ul>
+<h3 id="Spring-事务传播行为required和requires-new区别？"><a href="#Spring-事务传播行为required和requires-new区别？" class="headerlink" title="Spring 事务传播行为required和requires_new区别？"></a>Spring 事务传播行为required和requires_new区别？</h3><ul>
+<li>required：支持当前事务，若当前有事务，那么加入事务；反之，则新建一个</li>
+<li>requires_new：支持当前事务，若当前有事务，则挂起当前事务，然后新创建一个事务；反之，则自己创建一个事务。</li>
+</ul>
+<h2 id="二、Spring-MVC面试题"><a href="#二、Spring-MVC面试题" class="headerlink" title="二、Spring MVC面试题"></a>二、Spring MVC面试题</h2><h3 id="Java-有什么缺点（至少3条）？"><a href="#Java-有什么缺点（至少3条）？" class="headerlink" title="Java 有什么缺点（至少3条）？"></a>Java 有什么缺点（至少3条）？</h3><ul>
+<li>需要运行环境、不适合开发桌面应用程序</li>
+<li>由于为了跨平台的功能，所以极大的增加了产品的复杂性。</li>
+<li>无法定义一个好的标准使得开发时使用框架，必须先了解框架，延缓了开发的时间。</li>
+</ul>
+<h3 id="JAVA-常见编码规范（说5条）？"><a href="#JAVA-常见编码规范（说5条）？" class="headerlink" title="JAVA 常见编码规范（说5条）？"></a>JAVA 常见编码规范（说5条）？</h3><ul>
+<li>不能以下划线或美元符号开始，也不能以下划线或美元符号结束</li>
+<li>严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式</li>
+<li>方法名、参数名、成员变量、局部变量都必须遵从驼峰命名方式</li>
+<li>常量命名全部大写，单词间用下划线隔开</li>
+<li>包名统一使用小写，点分隔符之间有且仅有一个自然语义的英语单词</li>
+</ul>
+<h3 id="说出-git-命令（至少说6个）并分别说出其含义？"><a href="#说出-git-命令（至少说6个）并分别说出其含义？" class="headerlink" title="说出 git 命令（至少说6个）并分别说出其含义？"></a>说出 git 命令（至少说6个）并分别说出其含义？</h3><ul>
+<li>git init 初始化本地 git 仓库</li>
+<li>git status 查看当前版本状态</li>
+<li>git add  将该文件添加到缓存</li>
+<li>git commit -m ‘xxx’ 提交</li>
+<li>git log 显示日志</li>
+<li>git branch 显示本地分支</li>
+<li>git remote -v 列出远程分支详细信息</li>
+</ul>
+<h3 id="Spring-中如果发生循环注入会怎样？-a注入b-b注入a"><a href="#Spring-中如果发生循环注入会怎样？-a注入b-b注入a" class="headerlink" title="Spring 中如果发生循环注入会怎样？(a注入b b注入a)"></a>Spring 中如果发生循环注入会怎样？(a注入b b注入a)</h3><ul>
+<li>Spring内部代码是当解析依赖注入关系时，先判断是不是 @Lazy Bean，若是，则暂不解析该依赖；反之，则会进行依赖Bean的查找，若查找不到则会创建。</li>
+<li>但是在创建时，由于和需要注入的 Bean 有循环依赖关系，所以注入 Bean 创建失败。</li>
+</ul>
+<h3 id="Spring-MVC-中的-Bean-是线程安全的吗？-说出你的解决方案？"><a href="#Spring-MVC-中的-Bean-是线程安全的吗？-说出你的解决方案？" class="headerlink" title="Spring MVC 中的 Bean 是线程安全的吗？ 说出你的解决方案？"></a>Spring MVC 中的 Bean 是线程安全的吗？ 说出你的解决方案？</h3><ul>
+<li>Spring MVC 是单例模式，当涉及到改变成员变量时就会产生线程不安全；</li>
+<li>最简单的解决方法是在 Controller 类上添加 @scope 注解实现多例</li>
+</ul>
+<h3 id="Spring-MVC-的执行流程？"><a href="#Spring-MVC-的执行流程？" class="headerlink" title="Spring MVC 的执行流程？"></a>Spring MVC 的执行流程？</h3><ul>
+<li>用户发送请求至前端控制器 DispatcherServlet</li>
+<li>DispatcherServlet 收到请求后，调用 HandlerMapping 处理器映射器，请求获取 Handler</li>
+<li>处理器映射器根据请求 URL 找到具体的处理器，生成处理器对象及处理器拦截器，一并返回 DispatcherServlet</li>
+<li>DispatcherServlet 调用 HandlerAdapter 处理器适配器</li>
+<li>HandlerAdapter 经过适配调用具体处理器</li>
+<li>Handler 执行完成返回 ModelAndView</li>
+<li>HandlerAdapter 将 Handler 执行结果 ModelAndView 返回给 DispatcherServlet</li>
+<li>DispatcherServlet 将 ModelAndView 传给 ViewResolver 视图解析器进行解析</li>
+<li>ViewResolver 解析后返回具体 View</li>
+<li>DispatcherServlet 对 View 进行渲染视图</li>
+<li>DispatcherServlet 响应用户</li>
+</ul>
+<h3 id="RequestBody-和-ResponseBody-的区别？"><a href="#RequestBody-和-ResponseBody-的区别？" class="headerlink" title="@RequestBody 和 @ResponseBody 的区别？"></a>@RequestBody 和 @ResponseBody 的区别？</h3><ul>
+<li>@RequestBody：主要用来接收前端传递给后端的 Json 字符串中的数据的(请求体中的数据的)</li>
+<li>@ResponseBody：该注解用于将 Controller 的方法返回的对象，通过适当的 HttpMessageConverter 转换为指定格式后，写入到 Response 对象的 body 数据区</li>
+</ul>
+<h3 id="RequestParam-和-PathViriable-的区别？"><a href="#RequestParam-和-PathViriable-的区别？" class="headerlink" title="@RequestParam 和 @PathViriable 的区别？"></a>@RequestParam 和 @PathViriable 的区别？</h3><ul>
+<li>@PathViriable 请求路径上有个id的变量值，可以通过 @PathViriable 来获取 @RequestMapping</li>
+<li>@RequestParam 用来获得静态的URL请求入参；Spring 注解时 action 里用到。</li>
+</ul>
+<h3 id="Resource-和-Autowired-Qualifier-的区别？"><a href="#Resource-和-Autowired-Qualifier-的区别？" class="headerlink" title="@Resource 和 @Autowired/ @Qualifier 的区别？"></a>@Resource 和 @Autowired/ @Qualifier 的区别？</h3><ul>
+<li>@Autowired 根据类型注入</li>
+<li>@Resource 默认根据名字注入，其次按照类型搜索</li>
+<li>@Autowired 和 @Qualifier 两个结合起来可以根据名字和类型注入</li>
+</ul>
+<h3 id="RequestMapping-注解作用？"><a href="#RequestMapping-注解作用？" class="headerlink" title="@RequestMapping 注解作用？"></a>@RequestMapping 注解作用？</h3><ul>
+<li>是一个用来处理请求地址映射的注解，可用于类或方法上。</li>
+<li>用于类上，表示类中的所有响应请求的方法都是以该地址作为父路径。</li>
+</ul>
+<h3 id="Controller-Service-Repository-Component作用"><a href="#Controller-Service-Repository-Component作用" class="headerlink" title="@Controller,@Service,@Repository,@Component作用"></a>@Controller,@Service,@Repository,@Component作用</h3><ul>
+<li><p>@Controller：用于标注控制层服务。</p>
+</li>
+<li><p>@Repository：用于标注数据访问层，也可以说用于标注数据访问组件，即DAO组件。</p>
+</li>
+<li><p>@Service：用于标注业务逻辑层服务，主要用来进行业务的逻辑处理，注入DAO。这种bean默认是单例的，如果想改变，可以使用@Service(“beanName”) 、@Scope(“prototype”)来改变。</p>
+</li>
+<li><p>@Component：把普通的类实例化到spring容器中，相当于配置文件中的 <bean id="" class=""/>。泛指各种组件，就是说当我们的类不属于各种归类的时候（不属于@Controller、@Repository、@Services等的时候），我们就可以使用@Component来标注这个类。</p>
+</li>
+</ul>
+<h3 id="Transactional注解作用"><a href="#Transactional注解作用" class="headerlink" title="@Transactional注解作用"></a>@Transactional注解作用</h3><ul>
+<li>SpringXML配置事务</li>
+<li>Spring声明式事务</li>
+<li>Spring声明式注解事务。</li>
+<li>声明：public方法上。类上方。接口。抽象类.</li>
+<li>问题：方法内出现运行时异常时，Spring事务会完成回滚。</li>
+</ul>
+<h3 id="Configuration注解作用"><a href="#Configuration注解作用" class="headerlink" title="@Configuration注解作用"></a>@Configuration注解作用</h3><h2 id="三、Spring-Boot面试题"><a href="#三、Spring-Boot面试题" class="headerlink" title="三、Spring Boot面试题"></a>三、Spring Boot面试题</h2><h3 id="Maven的Scope区别和描述？"><a href="#Maven的Scope区别和描述？" class="headerlink" title="Maven的Scope区别和描述？"></a>Maven的Scope区别和描述？</h3><ul>
+<li><p>一组 dependency 一般包含4个标签，groupId 和 artifactId 相当于项目的定位。</p>
+</li>
+<li><p>groupId 是包名，artifactId 是唯一ID。version 代表版本号。而 scope 是为了限制 dependency 的作用范围</p>
+</li>
+<li><p>compile：是scope的默认值，表示此依赖会参与项目的编译,测试,运行和打包</p>
+</li>
+<li><p>provided：会参与编译，测试。不会被打包到 artifact 中</p>
+</li>
+<li><p>runtime：不会参与编译阶段.但在测试,运行和打包阶段都会参与</p>
+</li>
+<li><p>test：只参与测试和执行阶段</p>
+</li>
+<li><p>system：需要告知maven如何去找到依赖,如果需要引用的依赖在Maven仓库不存在时会使用</p>
+</li>
+<li><p>import：从其他 pom 文件中导入依赖</p>
+</li>
+</ul>
+<h3 id="Maven的Scope区别和描述"><a href="#Maven的Scope区别和描述" class="headerlink" title="Maven的Scope区别和描述"></a>Maven的Scope区别和描述</h3><p>  Maven的三套生命周期：</p>
+<ul>
+<li>clean生命周期（项目清理生命周期）：对在进行构建之前进行的一些清理工作。clean</li>
+<li>default生命周期（默认生命周期）：构建的核心部分，编译、测试、打包、安装、部署等等。compile test install package<ul>
+<li>validate：验证项目的正确性。</li>
+<li>compile：编译项目的源代码。</li>
+<li>test：使用合适的单元测试框架运行测试，这些测试代码不会被打包或部署。</li>
+<li>package：接受编译好的代码，打包成可发布的格式，如 JAR ，WAR。</li>
+<li>verify：检查包是否有效。</li>
+<li>install：将包安装至本地仓库，以让其它项目依赖。</li>
+<li>deploy：将最终的包复制到远程的仓库，以让其它开发人员与项目共享。</li>
+</ul>
+</li>
+<li>site生命周期（生成站点生命周期）：生成项目报告，站点，发布站点。site</li>
+</ul>
+<h3 id="描述Spring-Configuration-Bean-ComponentScan-PropertySource-Value注解？"><a href="#描述Spring-Configuration-Bean-ComponentScan-PropertySource-Value注解？" class="headerlink" title="描述Spring @Configuration @Bean @ComponentScan @PropertySource @Value注解？"></a>描述Spring @Configuration @Bean @ComponentScan @PropertySource @Value注解？</h3><ul>
+<li>@Configuration 配置类</li>
+<li>@Bean 创建 bean 交由 Spring 管理</li>
+<li>@ComponentScan 包扫描，扫描多个包</li>
+<li>@PropertySource 获取配置文件</li>
+<li>@Value 获取配置文件中的值</li>
+</ul>
+<h3 id="什么是-Spring-Boot，优点和缺点？"><a href="#什么是-Spring-Boot，优点和缺点？" class="headerlink" title="什么是 Spring Boot，优点和缺点？"></a>什么是 Spring Boot，优点和缺点？</h3><ul>
+<li><p>Spring Boot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。</p>
+</li>
+<li><p>容易上手，提升开发效率，开箱即用，远离繁琐的配置。<br>提供了一系列大型项目通用的非业务性功能<br>没有代码生成，也不需要XML配置。<br>避免大量的 Maven 导入和各种版本冲突。</p>
+</li>
+<li><p>例如：内嵌服务器、安全管理、运行数据监控、运行状况检查和外部化配置等。</p>
+</li>
+<li><p>版本迭代速度很快，一些模块改动很大</p>
+<p>由于不用自己做配置，报错时很难定位</p>
+</li>
+</ul>
+<h3 id="什么是-yml-语法格式（说3点-？"><a href="#什么是-yml-语法格式（说3点-？" class="headerlink" title="什么是 yml ? 语法格式（说3点)？"></a>什么是 yml ? 语法格式（说3点)？</h3><ul>
+<li><p>YAML 是一种人类可读的数据序列化语言。它通常用于配置文件。YAML 具有分层配置数据。</p>
+</li>
+<li><p>使用缩进表示层级关系</p>
+</li>
+<li><p>缩进时不允许使用 Tab键，只允许使用空格</p>
+</li>
+<li><p>缩进的空格的数目不重要，只要相同层级的元素左对齐即可</p>
+</li>
+<li><p>大小写敏感</p>
+<h3 id="Spring-Boot-4个注解-并说明其作用？"><a href="#Spring-Boot-4个注解-并说明其作用？" class="headerlink" title="Spring Boot (4个注解)并说明其作用？"></a>Spring Boot (4个注解)并说明其作用？</h3></li>
+<li><p>@SpringBootApplication：核心启动类的注解，是一个组合注解</p>
+</li>
+<li><p>@SpringBootConfiguration： Spring Boot 的配置注解</p>
+</li>
+<li><p>@EnableAutoConfiguration：自动配置注解，根据依赖自动配置项目的配置项</p>
+</li>
+<li><p>@AutoConfigurationPackage：将该注解所在的包作为自动配置包</p>
+</li>
+<li><p>@SpringBootTest：Spring Boot 的测试注解</p>
+</li>
+</ul>
+<h3 id="Spring-Boot-的核心注解是哪个？主要由哪几个注解组成的？"><a href="#Spring-Boot-的核心注解是哪个？主要由哪几个注解组成的？" class="headerlink" title="Spring Boot 的核心注解是哪个？主要由哪几个注解组成的？"></a>Spring Boot 的核心注解是哪个？主要由哪几个注解组成的？</h3><ul>
+<li>启动类上面的注解是 @SpringBootApplication，它也是 Spring Boot 的核心注解，主要组合包含了以下 3 个注解：</li>
+<li>@SpringBootConfiguration：组合了 @Configuration 注解，实现配置文件的功能。</li>
+<li>@EnableAutoConfiguration：打开自动配置的功能，也可以关闭某个自动配置的选项</li>
+<li>@ComponentScan：Spring 组件扫描。</li>
+</ul>
+<h3 id="Spring-boot-maven-plugin-插件作用？"><a href="#Spring-boot-maven-plugin-插件作用？" class="headerlink" title="Spring-boot-maven-plugin 插件作用？"></a>Spring-boot-maven-plugin 插件作用？</h3><ul>
+<li>Spring Boot的Maven插件能够以Maven的方式为应用提供Spring Boot的支持，即为Spring Boot应用提供了执行Maven操作的可能。</li>
+<li>Spring Boot Maven plugin能够将Spring Boot应用打包为可执行的jar或war文件，然后以通常的方式运行Spring Boot应用。</li>
+</ul>
+<h3 id="Spring-Boot-自动配置的原理？"><a href="#Spring-Boot-自动配置的原理？" class="headerlink" title="Spring Boot 自动配置的原理？"></a>Spring Boot 自动配置的原理？</h3><ul>
+<li>注解 @EnableAutoConfiguration，@Configuration，@ConditionalOnClass 就是自动配置的核心，@EnableAutoConfiguration 给容器导入META-INF/spring.factories 里定义的自动配置类。</li>
+<li>筛选有效的自动配置类。</li>
+<li>每一个自动配置类结合对应的 xxxProperties.java 读取配置文件进行自动配置功能</li>
+</ul>
+<h3 id="Spring-Boot-读取配置文件的方式？"><a href="#Spring-Boot-读取配置文件的方式？" class="headerlink" title="Spring Boot 读取配置文件的方式？"></a>Spring Boot 读取配置文件的方式？</h3><ul>
+<li><p>读取 application 文件</p>
+</li>
+<li><p>@Value 注解读取方式</p>
+</li>
+<li><p>@ConfigurationProperties 注解读取方式</p>
+</li>
+<li><p>@PropertySource + @Value 注解读取方式</p>
+</li>
+<li><p>@PropertySource + @ConfigurationProperties 注解读取方式</p>
+</li>
+<li><p>Environment 读取方式</p>
+</li>
+</ul>
+<h3 id="application-和-bootstrap-配置文件的区别？"><a href="#application-和-bootstrap-配置文件的区别？" class="headerlink" title="application 和 bootstrap 配置文件的区别？"></a>application 和 bootstrap 配置文件的区别？</h3><ul>
+<li>bootstrap (. yml 或者 . properties)：bootstrap 由父 ApplicationContext 加载的，比 applicaton 优先加载，配置在应用程序上下文的引导阶段生效。且 bootstrap 里面的属性不能被覆盖；</li>
+<li>application (. yml 或者 . properties)： 由ApplicatonContext 加载，用于 spring boot 项目的自动化配置。</li>
+</ul>
+<h2 id="四、Mybatis-面试题"><a href="#四、Mybatis-面试题" class="headerlink" title="四、Mybatis 面试题"></a>四、Mybatis 面试题</h2><h3 id="什么是-反）序列化作用。序列化ID-是什么？"><a href="#什么是-反）序列化作用。序列化ID-是什么？" class="headerlink" title="什么是(反）序列化作用。序列化ID 是什么？"></a>什么是(反）序列化作用。序列化ID 是什么？</h3><ul>
+<li>定义：将对象转换成字节序列过程；将字节序列恢复成对象的过程。</li>
+<li>作用：方便进行网络的传输</li>
+<li>Java 的序列化机制是通过在运行时判断类的 serialVersionUID 来验证版本一致性的。在进行序列化时，JVM 会把传来的字节流中的 serialVersionUID 与本地实体类中的 serialVersionUID 进行比较，如果相同则认为是一致的，便可以进行反序列化，否则就会报序列化版本不一致的异常</li>
+</ul>
+<h3 id="什么是-MyBatis？"><a href="#什么是-MyBatis？" class="headerlink" title="什么是 MyBatis？"></a>什么是 MyBatis？</h3><ul>
+<li>MyBatis 是一款优秀的持久层框架，一个半 ORM（对象关系映射）框架，</li>
+<li>它支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。</li>
+<li>MyBatis 可以使用简单的 XML 或注解来配置和映射原生类型、接口和 Java 的 POJO为数据库中的记录</li>
+</ul>
+<h3 id="和-的区别是什么？"><a href="#和-的区别是什么？" class="headerlink" title="#{ } 和 ${ } 的区别是什么？"></a>#{ } 和 ${ } 的区别是什么？</h3><ul>
+<li>#{ } 是预编译处理，${ } 是字符串替换。</li>
+<li>Mybatis 在处理 #{ } 时，会将 SQL 中的 #{} 替换为 ? 号，调用 PreparedStatement 的 set 方法来赋值；</li>
+<li>Mybatis 在处理 ${ } 时，就是把 ${ } 替换成变量的值。</li>
+<li>使用 #{ } 可以有效的防止 SQL 注入，提高系统安全性。</li>
+</ul>
+<h3 id="在-mapper-中如何传递多个参数，都有哪几种？"><a href="#在-mapper-中如何传递多个参数，都有哪几种？" class="headerlink" title="在 mapper 中如何传递多个参数，都有哪几种？"></a>在 mapper 中如何传递多个参数，都有哪几种？</h3><ul>
+<li><strong>方法1：顺序传参法</strong> </li>
+<li><strong>方法2：@Param 注解传参法</strong> <ul>
+<li>#{}里面的名称对应的是注解 @Param括号里面修饰的名称</li>
+</ul>
+</li>
+<li><strong>方法3：Map 传参法</strong> <ul>
+<li>#{}里面的名称对应的是 Map里面的key名称。</li>
+</ul>
+</li>
+<li><strong>方法4：Java Bean 传参法</strong><ul>
+<li>#{}里面的名称对应的是 实体类里面的成员属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="说出-MyBatis-动态标签（至少5个）？"><a href="#说出-MyBatis-动态标签（至少5个）？" class="headerlink" title="说出 MyBatis 动态标签（至少5个）？"></a>说出 MyBatis 动态标签（至少5个）？</h3><ul>
+<li><resultMap>     <parameterMap>     <sql>    <include>      <selectKey> </li>
+<li>trim       where      set     foreach      if       choose       when</li>
+</ul>
+<h3 id="parameterType-和-resultType-的区别？"><a href="#parameterType-和-resultType-的区别？" class="headerlink" title="parameterType 和 resultType 的区别？"></a>parameterType 和 resultType 的区别？</h3><ul>
+<li>使用 resultType：主要针对于从数据库中提取相应的数据出来</li>
+<li>使用 parameterType：主要针对于将信息存入到数据库中；如：insert 增加数据到数据库中   Update更新等</li>
+</ul>
+<h3 id="在用-MyBatis-插入时，如何得到数据库自增的主键值？"><a href="#在用-MyBatis-插入时，如何得到数据库自增的主键值？" class="headerlink" title="在用 MyBatis 插入时，如何得到数据库自增的主键值？"></a>在用 MyBatis 插入时，如何得到数据库自增的主键值？</h3><ul>
+<li>在 mapper.xml 中使用 <selectKey> 标签，利用LAST_INSERT_ID()函数获取</li>
+<li>在 Mybatis 的配置文件中,对应的<insert>标签上添加 keyProperty=”id” useGeneratedKeys=”true” 2个属性,如果主键设置为自增的话会自动返回 id</li>
+</ul>
+<h3 id="MyBatis-批量删除时，请问如何实现？"><a href="#MyBatis-批量删除时，请问如何实现？" class="headerlink" title="MyBatis 批量删除时，请问如何实现？"></a>MyBatis 批量删除时，请问如何实现？</h3><ul>
+<li><p>使用动态语句实现批量删除（delete结合foreach）</p>
+</li>
+<li><p><strong>直接传递给 mapper.xml 集合/数组形式</strong></p>
+<p>如果传入的是单参数且参数类型是一个 List 的时候，collection 属性值为 list，int deleteByLogic (List list)；如果传入的是单参数且参数类型是一个 array 数组的时候， 参数类型为parameterType = “int” 集合 collection 的属性值为 array</p>
+</li>
+<li><p><strong>直接在 service 中将数据给分装传递到 mapper 中</strong></p>
+<p>前端封装为以，为分隔符的 id 字符串。调用下方工具类。生成数据类型为（‘12’，‘34’….）形式</p>
+</li>
+</ul>
+<h3 id="MyBatis-批量添加时，请问如何实现？"><a href="#MyBatis-批量添加时，请问如何实现？" class="headerlink" title="MyBatis 批量添加时，请问如何实现？"></a>MyBatis 批量添加时，请问如何实现？</h3><ul>
+<li>Mybatis 可以直接传入一个集合，通过标签将集合中的数据遍历出来实现批量新增</li>
+</ul>
+<h3 id="MyBatis动态SQL执行流程和原理"><a href="#MyBatis动态SQL执行流程和原理" class="headerlink" title="MyBatis动态SQL执行流程和原理"></a>MyBatis动态SQL执行流程和原理</h3><ul>
+<li>Mybatis中<code>mapper.xml</code>文件会再加载的时候全部解析为<code>rootSqlNode</code>节点</li>
+<li>调用mapper的DAO接口时会代理其方法，封装参数，并传入StatementId （方法全限名）</li>
+<li>根据StatementId获取到<code>rootSqlNode</code>节点，循环调用 <code>MixedSqlNode</code>方法，使用Ognl 解析的结果进行拼装返回</li>
+<li>使用<code>SqlSourceBuilder</code>将#{} 中的内容解析，生成已经排序的参数<code>List parameterMappings</code>并将 #{} 替换成 ?</li>
+<li>最终调用JDBC中的<code>preparedStatement.setXXX()</code>方法，将已经排序的参数<code>List parameterMappings</code> 中的参数按照顺序将?替换，便得到一个完整的SQL</li>
+</ul>
+<h3 id="JDBC-为什么比-Mybatis-效率快？"><a href="#JDBC-为什么比-Mybatis-效率快？" class="headerlink" title="JDBC 为什么比 Mybatis 效率快？"></a>JDBC 为什么比 Mybatis 效率快？</h3><ul>
+<li>JDBC 直接在 Java 文件中编写 SQL，无需配置 xml 文件。</li>
+<li>而 Mybatis 是在 JDBC 上进一步封装，Mybatis 需要去映射和加载配置文件，所以 JDBC 比Mybatis 效率快。</li>
+</ul>
+<h3 id="MyBatis-框架中用到了哪些设计模式？是什么？"><a href="#MyBatis-框架中用到了哪些设计模式？是什么？" class="headerlink" title="MyBatis 框架中用到了哪些设计模式？是什么？"></a>MyBatis 框架中用到了哪些设计模式？是什么？</h3><ul>
+<li><strong>装饰器模式：</strong>例如 Cache 包中的 cache.decorators 子包中的各个装饰者的实现</li>
+<li><strong>建造者模式：</strong>例如 SqlSessionFactoryBuilder、XMLConfigBuilder、XMLMapperBuilder、XMLStatementBuilder、CacheBuilder</li>
+<li><strong>工厂方法：</strong>例如SqlSessionFactory、ObjectFactory、MapperProxyFactory</li>
+<li><strong>适配器模式：</strong>例如 Log 的 Mybatis 接口和它对 JDBC 、log4j 等各种日志框架的适配实现</li>
+<li><strong>模板方法：</strong>例如 BaseExecutor 和 SimpleExecutor，还有 BaseTypeHandler 和所有的子类例如IntegerTypeHandler</li>
+<li><strong>动态代理：</strong>mybatis 实现的核心，比如 MapperProxy、ConnectionLogger、用的 JDK 的动态代理，还有 executor.loader 包使用了 cglib 或者 javassist 达到延迟加载的效果</li>
+<li><strong>单例模式：</strong>例如 LogFactory、ErrorContext</li>
+<li><strong>组合模式：</strong>例如 SqlNode 和各个子类 ChooseSqlNode 等】</li>
+<li><strong>迭代器模式：</strong>例如迭代器模式 PropertyTokenizer</li>
+<li>责任链模式 </li>
+</ul>
+<h2 id="五、Spring事务"><a href="#五、Spring事务" class="headerlink" title="五、Spring事务"></a>五、Spring事务</h2><h3 id="手写一个设计模式（理论-伪代码）【除了单例、工厂】"><a href="#手写一个设计模式（理论-伪代码）【除了单例、工厂】" class="headerlink" title="手写一个设计模式（理论+伪代码）【除了单例、工厂】"></a>手写一个设计模式（理论+伪代码）【除了单例、工厂】</h3><ul>
+<li><h3 id="装饰器模式（Decorator-Pattern）：允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装，并在保持类方法签名完整性的前提下，提供了额外的功能。"><a href="#装饰器模式（Decorator-Pattern）：允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装，并在保持类方法签名完整性的前提下，提供了额外的功能。" class="headerlink" title="装饰器模式（Decorator Pattern）：允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装，并在保持类方法签名完整性的前提下，提供了额外的功能。"></a>装饰器模式（Decorator Pattern）：允许向一个现有的对象添加新的功能，同时又不改变其结构。这种类型的设计模式属于结构型模式，它是作为现有的类的一个包装，并在保持类方法签名完整性的前提下，提供了额外的功能。</h3><h3 id="优点：可以独立发展，不会相互耦合，可以动态扩展一个实现类的功能。装饰器模式是继承的一个替代模式，相比生成子类更为灵活。"><a href="#优点：可以独立发展，不会相互耦合，可以动态扩展一个实现类的功能。装饰器模式是继承的一个替代模式，相比生成子类更为灵活。" class="headerlink" title="优点：可以独立发展，不会相互耦合，可以动态扩展一个实现类的功能。装饰器模式是继承的一个替代模式，相比生成子类更为灵活。"></a>优点：可以独立发展，不会相互耦合，可以动态扩展一个实现类的功能。装饰器模式是继承的一个替代模式，相比生成子类更为灵活。</h3><h3 id="缺点：多层装饰比较复杂。"><a href="#缺点：多层装饰比较复杂。" class="headerlink" title="缺点：多层装饰比较复杂。"></a>缺点：多层装饰比较复杂。</h3></li>
+</ul>
+<h3 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h3><h3 id="首先，创建一个-接口-并实现这个接口的-实体类-；"><a href="#首先，创建一个-接口-并实现这个接口的-实体类-；" class="headerlink" title="首先，创建一个 接口 并实现这个接口的 实体类 ；"></a>首先，创建一个 接口 并实现这个接口的 实体类 ；</h3><h3 id="然后，我们创建一个实现这个接口的-抽象装饰类-，并把-接口对象-作为它的-实例变量-；"><a href="#然后，我们创建一个实现这个接口的-抽象装饰类-，并把-接口对象-作为它的-实例变量-；" class="headerlink" title="然后，我们创建一个实现这个接口的 抽象装饰类 ，并把 接口对象 作为它的 实例变量 ；"></a>然后，我们创建一个实现这个接口的 抽象装饰类 ，并把 接口对象 作为它的 实例变量 ；</h3><h3 id="然后，实现这个-抽象装饰类-的-实体类-；"><a href="#然后，实现这个-抽象装饰类-的-实体类-；" class="headerlink" title="然后，实现这个 抽象装饰类 的 实体类 ；"></a>然后，实现这个 抽象装饰类 的 实体类 ；</h3><h3 id="最后，通过演示类使用-实体装饰类-来装饰-接口对象-。"><a href="#最后，通过演示类使用-实体装饰类-来装饰-接口对象-。" class="headerlink" title="最后，通过演示类使用 实体装饰类 来装饰 接口对象 。"></a>最后，通过演示类使用 实体装饰类 来装饰 接口对象 。</h3><ul>
+<li><p><strong>步骤 1：创建一个接口。Animal . java</strong></p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Animal</span> </span>{
+    <span class="function"><span class="keyword">void</span> <span class="title">call</span><span class="params">()</span></span>;
+}
+&lt;!--￼<span class="number">0</span>--&gt;</code></pre>
+</li>
+<li><p><strong>步骤 3：创建实现了 Animal 接口的抽象装饰类。Decorate Animal . java</strong></p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">DecorateAnimal</span> <span class="keyword">implements</span> <span class="title">Aanimal</span> </span>{
+    <span class="keyword">protected</span> Animal animal;
+    <span class="function"><span class="keyword">public</span> <span class="title">DecorateAnimal</span><span class="params">(Animal animal)</span> </span>{
+        <span class="keyword">this</span>.animal = animal;
+    }
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">()</span> </span>{
+        animal.call();
+    }
+}
+&lt;!--￼<span class="number">1</span>--&gt;</code></pre>
+</li>
+<li><p><strong>步骤 5：使用 Eat Decorator 来装饰 Animal 对象。Function . java</strong></p>
+</li>
+<li><pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Function</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Animal dog = <span class="keyword">new</span> Dog();
+        Animal eatDecorator = <span class="keyword">new</span> EatDecorator(dog);
+        eatDecorator.call();
+    }
+}
+&lt;!--￼<span class="number">2</span>--&gt;</code></pre>
+</li>
+</ul>
+<ol start="2">
+<li><h3 id="权重：指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。"><a href="#权重：指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。" class="headerlink" title="权重：指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。"></a>权重：指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">upstream <span class="built_in">test</span> &#123;</span><br><span class="line">        server localhost:8080 weight=9;</span><br><span class="line">        server localhost:8081 weight=1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="ip-hash：上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。"><a href="#ip-hash：上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。" class="headerlink" title="ip_hash：上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。"></a>ip_hash：上面的2种方式都有一个问题，那就是下一个请求来的时候请求可能分发到另外一个服务器，当我们的程序不是无状态的时候（采用了session保存数据），这时候就有一个很大的很问题了，比如把登录信息保存到了session中，那么跳转到另外一台服务器的时候就需要重新登录了，所以很多时候我们需要一个客户只访问一个服务器，那么就需要用iphash了，iphash的每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">upstream <span class="built_in">test</span> &#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    server localhost:8080;</span><br><span class="line">    server localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="fair（第三方）：按后端服务器的响应时间来分配请求，响应时间短的优先分配。"><a href="#fair（第三方）：按后端服务器的响应时间来分配请求，响应时间短的优先分配。" class="headerlink" title="fair（第三方）：按后端服务器的响应时间来分配请求，响应时间短的优先分配。"></a>fair（第三方）：按后端服务器的响应时间来分配请求，响应时间短的优先分配。</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">upstream backend &#123; </span><br><span class="line">        fair; </span><br><span class="line">        server localhost:8080;</span><br><span class="line">        server localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h3 id="url-hash（第三方）：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。-在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash-method是使用的hash算法"><a href="#url-hash（第三方）：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。-在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash-method是使用的hash算法" class="headerlink" title="url_hash（第三方）：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法"></a>url_hash（第三方）：按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">upstream backend &#123; </span><br><span class="line">        <span class="built_in">hash</span> <span class="variable">$request_uri</span>; </span><br><span class="line">        hash_method crc32; </span><br><span class="line">        server localhost:8080;</span><br><span class="line">        server localhost:8081;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</li>
+</ol>
+<h2 id="十、多线程"><a href="#十、多线程" class="headerlink" title="十、多线程"></a>十、多线程</h2><h3 id="什么是线程？线程和进程的区别？"><a href="#什么是线程？线程和进程的区别？" class="headerlink" title="什么是线程？线程和进程的区别？"></a>什么是线程？线程和进程的区别？</h3><ul>
+<li>线程是CPU调度的基本单位</li>
+<li>一个进程无法直接访问另一个进程的资源；同一进程内的多个线程共享进程的资源。</li>
+<li>进程切换开销大，线程切换开销小；进程间通信开销大，线程间通信开销小。</li>
+<li>线程属于进程，不能独立执行。每个进程至少要有一个线程，成为主线程。</li>
+</ul>
+<h3 id="描述CPU和多线程的关系？"><a href="#描述CPU和多线程的关系？" class="headerlink" title="描述CPU和多线程的关系？"></a>描述CPU和多线程的关系？</h3><ul>
+<li>第一阶段，单CPU时代，单CPU在同一时间点，只能执行单一线程。</li>
+<li>第二阶段，单CPU多任务阶段，计算机在同一时间点，并行执行多个线程。但这并非真正意义上的同时执行，而是多个任务共享一个CPU，操作系统协调CPU在某个时间点，执行某个线程，因为CPU在线程之间切换比较快，就好像多个任务在同时运行。</li>
+<li>第三阶段，多CPU多任务阶段，真正实现的，在同一时间点运行多个线程。具体到哪个线程在哪个CPU执行，这就跟操作系统和CPU本身的设计有关了。</li>
+</ul>
+<h3 id="什么是线程安全-线程不安全？"><a href="#什么是线程安全-线程不安全？" class="headerlink" title="什么是线程安全/线程不安全？"></a>什么是线程安全/线程不安全？</h3><ul>
+<li>线程安全：指多个线程在执行同一段代码的时候采用加锁机制，使每次的执行结果和单线程执行的结果都是一样的，不存在执行程序时出现意外结果。</li>
+<li>线程不安全：是指不提供加锁机制保护，有可能出现多个线程先后更改数据造成所得到的数据是脏数据。</li>
+</ul>
+<h3 id="描述下线程的生命周期？（画图）"><a href="#描述下线程的生命周期？（画图）" class="headerlink" title="描述下线程的生命周期？（画图）"></a>描述下线程的生命周期？（画图）</h3><ul>
+<li><img src= "/img/loading.gif" data-src="https://img-blog.csdnimg.cn/20191028201333669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTYzOTMw,size_16,color_FFFFFF,t_70" alt="img" style="zoom:200%;" />
+</li>
+<li><p>新建 –&gt; 就绪 –&gt; 运行 –&gt; 阻塞 –&gt; 死亡</p>
+</li>
+<li><p><strong>在Java中有3种方法可以停止正在运行的线程:</strong></p>
+<p>　　(1)使用退出标志使线程正常终止，也就是当run方法完成后线程终止。</p>
+<p>  　　(2)使用stop方法强行<strong>终止</strong>线程，但是不推荐使用这个方法，因为stop和suspend、resume一样，都是过期作废的方法。</p>
+<p>  　　(3)使用interrupt方法<strong>中断</strong>线程，停止不了的线程，调用thread.interrupt()方法，但是此方法并不会马上停止线程，只是在当前线程打了一个停止的标记，并不是真正的停止线程。</p>
+</li>
+</ul>
+<h3 id="wait-、sleep-、join-、yield-的区别？"><a href="#wait-、sleep-、join-、yield-的区别？" class="headerlink" title="wait()、sleep()、join()、yield()的区别？"></a>wait()、sleep()、join()、yield()的区别？</h3><ul>
+<li>wait 方法是属于 Object 类中的，wait 过程中线程会释放对象锁，只有当其他线程调用 notify 才能唤醒此线程。wait 使用时必须先获取对象锁，即必须在 synchronized 修饰的代码块中使用，那么相应的 notify 方法同样必须在 synchronized 修饰的代码块中使用，如果没有在synchronized 修饰的代码块中使用时运行时会抛出IllegalMonitorStateException的异常</li>
+</ul>
+<ul>
+<li>sleep() 方法<strong>需要指定等待的时间，让当前正在执行的线程在指定的时间内暂停执行</strong>，进入阻塞状态。该方法既可以让其他同优先级或者高优先级的线程得到执行的机会，也可以让低优先级的线程得到执行机会。</li>
+<li>yield() 方法和 sleep() 方法类似，也不会释放“锁标志”， yield() 方法只是<strong>使当前线程重新回到可执行状态</strong>，yield() 方法<strong>只能使同优先级或者高优先级的线程得到执行机会</strong>。</li>
+<li>join() 方法会<strong>使当前线程等待调用 join() 方法的线程结束后才能继续执行</strong>。join()在内部使用的是wait()方法进行等待，join() 执行后会立马释放锁。</li>
+</ul>
+<h3 id="Synchronized和Lock的区别？"><a href="#Synchronized和Lock的区别？" class="headerlink" title="Synchronized和Lock的区别？"></a>Synchronized和Lock的区别？</h3><ul>
+<li>Synchronized是关键字，<strong>是一种同步锁</strong>，java内置语言实现，Lock是接口。</li>
+<li>Synchronized在线程发生异常时会自动释放锁，Lock异常时不会自动释放锁，需要在finally中实现释放锁。</li>
+<li>Synchronized无法判断是否获取锁的状态，Lock可以判断是否获取到锁</li>
+<li>synchronized的锁可重入、不可中断、非公平，而Lock锁可重入、可中断、可公平</li>
+<li>Lock可以使用读锁提高多线程读效率。</li>
+<li><img src= "/img/loading.gif" data-src="https://img-blog.csdn.net/20180904143958577?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hlZmVuZ2xpYW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
+</ul>
+<h3 id="ThreadLocal、Volatile、Synchronized-的作用和区别？"><a href="#ThreadLocal、Volatile、Synchronized-的作用和区别？" class="headerlink" title="ThreadLocal、Volatile、Synchronized 的作用和区别？"></a>ThreadLocal、Volatile、Synchronized 的作用和区别？</h3><ul>
+<li>ThreadLocal 不是为了解决多线程访问共享变量，而是为每个线程创建一个单独的变量副本，提供了保持对象的方法和避免参数传递的复杂性。</li>
+<li>volatile主要是用来在多线程中同步变量。</li>
+<li>Synchronized 关键字保证了<strong>数据读写一致和可见性</strong>等问题，但是他是一种阻塞的线程控制方法，在关键字使用期间，所有其他线程不能使用此变量。</li>
+</ul>
+<h3 id="同步方法和同步块，哪个更好？"><a href="#同步方法和同步块，哪个更好？" class="headerlink" title="同步方法和同步块，哪个更好？"></a>同步方法和同步块，哪个更好？</h3><ul>
+<li>同步方法使用synchronized修饰方法，在调用该方法前，需要获得内置锁（java每个对象都有一个内置锁），否则就处于阻塞状态</li>
+<li>同步代码块使用synchronized(object){}进行修饰，在调用该代码块时，需要获得内置锁，否则就处于阻塞状态</li>
+</ul>
+<h3 id="什么是死锁？如何避免死锁？"><a href="#什么是死锁？如何避免死锁？" class="headerlink" title="什么是死锁？如何避免死锁？"></a>什么是死锁？如何避免死锁？</h3><ul>
+<li>当两个线程相互等待对方释放资源时，就会发生死锁。</li>
+<li>避免多次锁定。</li>
+<li>具有相同的加锁顺序。</li>
+<li>使用定时锁。</li>
+<li>死锁检测。</li>
+</ul>
+<h3 id="常见的线程池叫什么，线程池的作用是什么"><a href="#常见的线程池叫什么，线程池的作用是什么" class="headerlink" title="常见的线程池叫什么，线程池的作用是什么"></a>常见的线程池叫什么，线程池的作用是什么</h3><ul>
+<li>newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</li>
+<li>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</li>
+<li>newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。</li>
+<li>newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺（FIFO， LIFO， 优先级）执行。</li>
+<li>节省系统资源的开销，节省创建和销毁线程的时间</li>
+</ul>
+<h3 id="线程池的使用要创建多少线程？为什么？"><a href="#线程池的使用要创建多少线程？为什么？" class="headerlink" title="线程池的使用要创建多少线程？为什么？"></a>线程池的使用要创建多少线程？为什么？</h3><ul>
+<li>线程池为线程生命周期开销问题和资源不足问题提供了解决方案。通过对多个任务重用线程，线程创建的开销被分摊到了多个任务上。</li>
+<li>因为在请求到达时线程已经存在，所以无意中也消除了线程创建所带来的延迟。这样，就可以立即为请求服务，使应用程序响应更快。而且，通过适当地调整线程池中的线程数目，也就是当请求的数目超过某个阈值时，就强制其它任何新到的请求一直等待，直到获得一个线程来处理为止，从而可以防止资源不足。</li>
+</ul>
+<h2 id="十一、Redis"><a href="#十一、Redis" class="headerlink" title="十一、Redis"></a>十一、Redis</h2><h3 id="Redis是什么？"><a href="#Redis是什么？" class="headerlink" title="Redis是什么？"></a>Redis是什么？</h3><ul>
+<li>Redis 是完全开源免费的，遵守<strong>BSD</strong>协议，是一个高性能(<strong>NOSQL</strong>)的key-value<strong>数据库</strong>,Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API</li>
+</ul>
+<h3 id="NOSQL是什么，出现的目的和意义是什么？"><a href="#NOSQL是什么，出现的目的和意义是什么？" class="headerlink" title="NOSQL是什么，出现的目的和意义是什么？"></a>NOSQL是什么，出现的目的和意义是什么？</h3><ul>
+<li><p>而传统的关系数据库在应付web2.0网站，特别是<strong>超大规模和高并发的SNS类型的web2.0纯动态网站已经显得力不从心，暴露了很多难以克服的问题</strong>，如：</p>
+<ul>
+<li>对数据库高并发读写的需求</li>
+<li>对海量数据的高效率存储和访问的需求</li>
+<li>对数据库的高可扩展性和高可用性的需求</li>
+</ul>
+</li>
+<li><p>NoSQL数据库的产生就是为了解决大规模数据集合多重数据种类带来的挑战，尤其是大数据应用难题</p>
+</li>
+</ul>
+<h3 id="Redis的优点和缺点？"><a href="#Redis的优点和缺点？" class="headerlink" title="Redis的优点和缺点？"></a>Redis的优点和缺点？</h3><ul>
+<li><p><strong>优点</strong></p>
+<ul>
+<li><p><strong>性能极高</strong> – Redis能读的速度是110000次/s,写的速度是81000次/s 。</p>
+</li>
+<li><p><strong>丰富的数据类型</strong> – Redis支持的类型 String, Hash,List, , Set 及 Ordered Set 数据类型操作。</p>
+</li>
+<li><p><strong>原子性</strong> – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。单个操作是原子性的。多个操作也支持事务，即原子性，通过MULTI和EXEC指令包起来。</p>
+</li>
+<li><p><strong>丰富的特性</strong> – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</p>
+</li>
+<li><p><strong>高速读写</strong>，redis使用自己实现的分离器，代码量很短，没有使用lock（MySQL），因此效率非常高。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>缺点</strong></p>
+<ul>
+<li><strong>持久化</strong>。Redis直接将数据存储到内存中，要将数据保存到磁盘上，Redis可以使用两种方式实现持久化过程。定时快照（snapshot）：每隔一段时间将整个数据库写到磁盘上，每次均是写全部数据，<strong>代价非常高</strong>。第二种方式基于语句追加（aof）：只追踪变化的数据，但是追加的log可能过大，同时所有的操作均重新执行一遍，<strong>回复速度慢。</strong> </li>
+<li><strong>耗内存</strong>，占用内存过高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Redis有哪些应用场景？为什么要学习Redis"><a href="#Redis有哪些应用场景？为什么要学习Redis" class="headerlink" title="Redis有哪些应用场景？为什么要学习Redis"></a>Redis有哪些应用场景？为什么要学习Redis</h3><ul>
+<li><p>1、缓存<br>缓存现在几乎是所有中大型网站都在用的必杀技，合理的利用缓存不仅能够提升网站访问速度，还能大大降低数据库的压力。</p>
+</li>
+<li><p>2、排行榜<br>很多网站都有排行榜应用的，如京东的月度销量榜单、商品按时间的上新排行榜等。Redis提供的有序集合数据类构能实现各种复杂的排行榜应用。</p>
+</li>
+<li><p>3、计数器<br>什么是计数器，如电商网站商品的浏览量、视频网站视频的播放数等。</p>
+</li>
+<li><p>4、分布式会话<br>集群模式下，在应用不多的情况下一般使用容器自带的session复制功能就能满足，当应用增多相对复杂的系统中，一般都会搭建以Redis等内存数据库为中心的session服务，session不再由容器管理，而是由session服务及内存数据库管理。</p>
+</li>
+<li><p>5、分布式锁<br>在很多互联网公司中都使用了分布式技术，分布式技术带来的技术挑战是对同一个资源的并发访问，如全局ID、减库存、秒杀等场景，并发量不大的场景可以使用数据库的悲观锁、乐观锁来实现，但在并发量高的场合中，利用数据库锁来控制资源的并发访问是不太理想的，大大影响了数据库的性能。可以利用Redis的setnx功能来编写分布式的锁，如果设置返回1说明获取锁成功，否则获取锁失败，实际应用中要考虑的细节要更多。</p>
+</li>
+<li><p>6、 社交网络<br>点赞、踩、关注/被关注、共同好友等是社交网站的基本功能，社交网站的访问量通常来说比较大，而且传统的关系数据库类型不适合存储这种类型的数据，Redis提供的哈希、集合等数据结构能很方便的的实现这些功能。</p>
+</li>
+<li><p>7、最新列表<br>Redis列表结构，LPUSH可以在列表头部插入一个内容ID作为关键字，LTRIM可用来限制列表的数量，这样列表永远为N个ID，无需查询最新的列表，直接根据ID去到对应的内容页即可。</p>
+</li>
+<li><p>8、消息系统<br>消息队列是大型网站必用中间件，如ActiveMQ、RabbitMQ、Kafka等流行的消息队列中间件，主要用于业务解耦、流量削峰及异步处理实时性低的业务。Redis提供了发布/订阅及阻塞队列功能，能实现一个简单的消息队列系统。另外，这个不能和专业的消息中间件相比。</p>
+</li>
+</ul>
+<h3 id="Redis在什么情况下会进行持久化操作？"><a href="#Redis在什么情况下会进行持久化操作？" class="headerlink" title="Redis在什么情况下会进行持久化操作？"></a>Redis在什么情况下会进行持久化操作？</h3><h3 id="Redis中为什么需要持久化机制？"><a href="#Redis中为什么需要持久化机制？" class="headerlink" title="Redis中为什么需要持久化机制？"></a>Redis中为什么需要持久化机制？</h3><h3 id="Redis持久化触发条件有哪些？"><a href="#Redis持久化触发条件有哪些？" class="headerlink" title="Redis持久化触发条件有哪些？"></a>Redis持久化触发条件有哪些？</h3><h3 id="Redis内存维护策略？"><a href="#Redis内存维护策略？" class="headerlink" title="Redis内存维护策略？"></a>Redis内存维护策略？</h3><h3 id="Redis为什么是单线程？"><a href="#Redis为什么是单线程？" class="headerlink" title="Redis为什么是单线程？"></a>Redis为什么是单线程？</h3><p>数据存储在内存中，操作数据时纳秒为单位的，非常快，不需要多线程</p>
+<h3 id="Redis-是什么，优点。应用场景"><a href="#Redis-是什么，优点。应用场景" class="headerlink" title="Redis 是什么，优点。应用场景"></a>Redis 是什么，优点。应用场景</h3><ul>
+<li>Redis 是一个开源的、使用C语言编写的、支持网络交互的、可基于内存也可持久化的Key-Value数据库。</li>
+<li>性能极高、丰富的数据类型、Redis 的所有操作都是原子性、丰富的特性、支持数据备份</li>
+<li>内存存储和持久化、模拟需要设定过期时间的功能、发布、订阅消息系统、定时器、计数器                                                                         </li>
+</ul>
+<h3 id="string类型（5个常用命令）。说出不少于3个应用场景"><a href="#string类型（5个常用命令）。说出不少于3个应用场景" class="headerlink" title="string类型（5个常用命令）。说出不少于3个应用场景"></a>string类型（5个常用命令）。说出不少于3个应用场景</h3><ul>
+<li>set key value 给指定key的值</li>
+<li>get key 获取指定key的值</li>
+<li>getrange key start end 返回key中字符串值的子字符</li>
+<li>getset key value 将给定key的值设为value 并返回key的旧值</li>
+<li>getbit key offset 对key所储存的字符串值,获取指定偏移量上的位</li>
+<li>mget key1 key2   获取一个或者多个给定的值</li>
+<li>strlen key 返回所储存的字符串的值</li>
+<li>incr key 自增</li>
+<li>decr key 自减</li>
+<li>append 追加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 计数器</span><br><span class="line">	string类型的incr和decr命令的作用是将key中储存的数字值加一&#x2F;减一，这两个操作具有原子性，总能安全地进行加减操作，因此可以用string类型进行计数，如微博的评论数、点赞数、分享数，抖音作品的收藏数，京东商品的销售量、评价数等。</span><br><span class="line">2. 分布式锁</span><br><span class="line">	string类型的setnx的作用是“当key不存在时，设值并返回1，当key已经存在时，不设值并返回0”，“判断key是否存在”和“设值”两个操作是原子性地执行的，因此可以用string类型作为分布式锁，返回1表示获得锁，返回0表示没有获得锁。例如，为了保证定时任务的高可用，往往会同时部署多个具备相同定时任务的服务，但是业务上只希望其中的某一台服务执行定时任务，当定时任务的时间点触发时，多个服务同时竞争一个分布式锁，获取到锁的执行定时任务，没获取到的放弃执行定时任务。定时任务执行完时通过del命令删除key即释放锁，如果担心del命令操作失败而导致锁一直未释放，可以通过expire命令给锁设置一个合理的自动过期时间，确保即使del命令失败，锁也能被释放。不过expire命令同样存在失败的可能性，如果你用的是Java语言，建议使用JedisCommands接口提供的String set(String key, String value, String nxxx, String expx, long time)方法，这个方法可以将setnx和expire原子性地执行，具体使用方式如下（相信其它语言的Redis客户端也应当提供了类似的方法）。</span><br><span class="line">3. 存储对象</span><br><span class="line">利用JSON强大的兼容性、可读性和易用性，将对象转换为JSON字符串，再存储在string类型中，是个不错的选择，如用户信息、商品信息等。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="hash类型（5个常用命令）。说出不少于3个应用场景"><a href="#hash类型（5个常用命令）。说出不少于3个应用场景" class="headerlink" title="hash类型（5个常用命令）。说出不少于3个应用场景"></a>hash类型（5个常用命令）。说出不少于3个应用场景</h3><ul>
+<li>hdel key field1 field2..   删除一个或者多个字段</li>
+<li>hexists key field 查看字段是否存在</li>
+<li>hget key field 获取字段值</li>
+<li>hgetall key 获取所有字段值</li>
+<li>hincrby key field increment 指定字段的整数值增量加上increment</li>
+<li>hkeys key 获取所有key的所有字段</li>
+<li>hlen key 数量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">应用场景:</span><br><span class="line">   1. 购物车,以用户id为key，商品id为field，商品数量为value，恰好构成了购物车的3个要素</span><br><span class="line">   2. 存储任意的对象.当对象的某个属性需要频繁修改时，不适合用string+json，因为它不够灵活，每次修改都需要重新将整个对象序列化并赋值，如果使用hash类型，则可以针对某个属性单独修改，没有序列化，也不需要修改整个对象。比如，商品的价格、销量、关注数、评价数等可能经常发生变化的属性，就适合存储在hash类型里。当然，不常变化的属性存储在hash类型里也没有问题，比如商品名称、商品描述、上市日期等。但是，当对象的某个属性不是基本类型或字符串时，使用hash类型就必须手动进行复杂序列化，比如，商品的标签是一个标签对象的列表，商品可领取的优惠券是一个优惠券对象的列表（如下图所示）等，即使以coupons（优惠券）作为field，value想存储优惠券对象列表也还是要使用json来序列化，这样的话序列化工作就太繁琐了，不如直接用string + json的方式存储商品信息来的简单。</span><br></pre></td></tr></table></figure>
+
+<h3 id="list类型（5个常用命令）。说出不少于3个应用场景"><a href="#list类型（5个常用命令）。说出不少于3个应用场景" class="headerlink" title="list类型（5个常用命令）。说出不少于3个应用场景"></a>list类型（5个常用命令）。说出不少于3个应用场景</h3><ul>
+<li>blpop key1 key2 timeout  移除并获取列表的第一个元素即最后一个加入的元素,如果没有则会阻塞timeout(秒)返回nil</li>
+<li>brpop key1 key2 timeout  移除并获取列表的最后一个元素</li>
+<li>lindex key index 获取索引的值</li>
+<li>llen key 获取列表长度</li>
+<li>lpop key 移除并获取列表的第一个元素</li>
+<li>linsert key before/after pivot value 在列表后面或者前面插入元素</li>
+<li>lrem key count value 移除value  </li>
+<li>lrange key start stop 获取列表指定范围的元素</li>
+<li>rpop key 移除并获取列表的最后一个元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 消息队列</span><br><span class="line">	list类型的lpop和rpush（或者反过来，lpush和rpop）能实现队列的功能，故而可以用Redis的list类型实现简单的点对点的消息队列。不过我不推荐在实战中这么使用，因为现在已经有Kafka、NSQ、RabbitMQ等成熟的消息队列了，它们的功能已经很完善了，除非是为了更深入地理解消息队列，不然我觉得没必要去重复造轮子。</span><br><span class="line">2. 排行榜</span><br><span class="line">	list类型的lrange命令可以分页查看队列中的数据。可将每隔一段时间计算一次的排行榜存储在list类型中，如京东每日的手机销量排行、学校每次月考学生的成绩排名、斗鱼年终盛典主播排名等，下图是酷狗音乐“K歌擂台赛”的昨日打擂金曲排行榜，每日计算一次，存储在list类型中，接口访问时，通过page和size分页获取打擂金曲。（打个小广告，酷狗音乐“K歌擂台赛”每天都能产生一批优质翻唱作品，对普通人优质歌声有兴趣的朋友不妨来听听）。</span><br><span class="line">3. 最新列表</span><br><span class="line">	list类型的lpush命令和lrange命令能实现最新列表的功能，每次通过lpush命令往列表里插入新的元素，然后通过lrange命令读取最新的元素列表，如朋友圈的点赞列表、评论列表。</span><br><span class="line">	但是，并不是所有的最新列表都能用list类型实现，因为对于频繁更新的列表，list类型的分页可能导致列表元素重复或漏掉，举个例子，当前列表里由表头到表尾依次有（E，D，C，B，A）五个元素，每页获取3个元素，用户第一次获取到（E，D，C）三个元素，然后表头新增了一个元素F，列表变成了（F，E，D，C，B，A），此时用户取第二页拿到（C，B，A），元素C重复了。只有不需要分页（比如每次都只取列表的前5个元素）或者更新频率低（比如每天凌晨更新一次）的列表才适合用list类型实现。对于需要分页并且会频繁更新的列表，需用使用有序集合sorted set类型实现。另外，需要通过时间范围查找的最新列表，list类型也实现不了，也需要通过有序集合sorted set类型实现，如以成交时间范围作为条件来查询的订单列表。之后在介绍有序集合sorted set类型的应用场景时会详细介绍sorted set类型如何实现最新列表。</span><br></pre></td></tr></table></figure>
+
+<h3 id="set类型（5个常用命令）。说出不少于3个应用场景"><a href="#set类型（5个常用命令）。说出不少于3个应用场景" class="headerlink" title="set类型（5个常用命令）。说出不少于3个应用场景"></a>set类型（5个常用命令）。说出不少于3个应用场景</h3><ul>
+<li>sadd key member1 member2 向集合添加一个或者多个值</li>
+<li>scard key 获取集合的成员数</li>
+<li>sdiff key1 key2 返回给定所有集合的差集</li>
+<li>sinter key1 key2 返回给定所有集合的交集</li>
+<li>sismember key member 判断是否是集合的成员</li>
+<li>smembers key返回集合中的所有成员</li>
+<li>spop key 移除并返回集合中的一个随机元素</li>
+<li>srandmember key [count] 返回集合中一个或多个随机数</li>
+<li>srem key member1 [member2] 移除集合中一个或多个成员<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set类型是string类型的集合，其特点是集合元素无序且不重复，每个集合最多可以存储 232 - 1 个元素（40多亿），set类型主要有以下应用场景。</span><br><span class="line">1. 好友&#x2F;关注&#x2F;粉丝&#x2F;感兴趣的人集合</span><br><span class="line">   set类型唯一的特点使得其适合用于存储好友&#x2F;关注&#x2F;粉丝&#x2F;感兴趣的人集合，集合中的元素数量可能很多，每次全部取出来成本不小，set类型提供了一些很实用的命令用于直接操作这些集合，如</span><br><span class="line">   a. sinter命令可以获得A和B两个用户的共同好友</span><br><span class="line">   b. sismember命令可以判断A是否是B的好友</span><br><span class="line">   c. scard命令可以获取好友数量</span><br><span class="line">   d. 关注时，smove命令可以将B从A的粉丝集合转移到A的好友集合</span><br><span class="line">   需要注意的是，如果你用的是Redis Cluster集群，对于sinter、smove这种操作多个key的命令，要求这两个key必须存储在同一个slot（槽位）中，否则会报出 (error) CROSSSLOT Keys in request don&#39;t hash to the same slot 错误。Redis Cluster一共有16384个slot，每个key都是通过哈希算法CRC16(key)获取数值哈希，再模16384来定位slot的。要使得两个key处于同一slot，除了两个key一模一样，还有没有别的方法呢？答案是肯定的，Redis提供了一种**Hash Tag**的功能，在key中使用&#123;&#125;括起key中的一部分，在进行 CRC16(key) mod 16384 的过程中，只会对&#123;&#125;内的字符串计算，例如friend_set:&#123;123456&#125;和fans_set:&#123;123456&#125;，分别表示用户123456的好友集合和粉丝集合，在定位slot时，只对&#123;&#125;内的123456进行计算，所以这两个集合肯定是在同一个 slot 内的，当用户123456关注某个粉丝时，就可以通过smove命令将这个粉丝从用户123456的粉丝集合移动到好友集合。相比于通过srem命令先将这个粉丝从粉丝集合中删除，再通过sadd命令将这个粉丝加到好友集合，smove命令的优势是它是原子性的，不会出现这个粉丝从粉丝集合中被删除，却没有加到好友集合的情况。然而，对于通过sinter获取共同好友而言，Hash Tag则无能为力，例如，要用sinter去获取用户123456和456789两个用户的共同好友，除非我们将key定义为&#123;friend_set&#125;:123456和&#123;friend_set&#125;:456789，否则不能保证两个key会处于同一个slot，但是如果真这样做的话，所有用户的好友集合都会堆积在同一个slot中，数据分布会严重不均匀，不可取，所以，***\*在实战中\**使用Redis Cluster时，sinter这个命令其实是不适合作用于两个不同用户对应的集合的**（同理其它操作多个key的命令）。  </span><br><span class="line">2. 随机展示</span><br><span class="line">   通常，app首页的展示区域有限，但是又不能总是展示固定的内容，一种做法是先确定一批需要展示的内容，再从中随机获取。如下图所示，酷狗音乐K歌擂台赛当日的打擂歌曲共29首，首页随机展示5首；昨日打擂金曲共200首，首页随机展示30首。</span><br><span class="line">3. 黑名单&#x2F;白名单</span><br><span class="line">   经常有业务出于安全性方面的考虑，需要设置用户黑名单、ip黑名单、设备黑名单等，set类型适合存储这些黑名单数据，sismember命令可用于判断用户、ip、设备是否处于黑名单之中。</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="zset类型（5个常用命令）。说出不少于3个应用场景"><a href="#zset类型（5个常用命令）。说出不少于3个应用场景" class="headerlink" title="zset类型（5个常用命令）。说出不少于3个应用场景"></a>zset类型（5个常用命令）。说出不少于3个应用场景</h3><ul>
+<li>zadd key score1 member1 score2 member2 向有序集合添加一个或多个成员,或者更新已存在成员的分数</li>
+<li>zcard key 获取有序集合的成员数</li>
+<li>zcount key min max 计算有序集合中指定区间分数的成员数</li>
+<li>zincrby key increment member 对指定成员的分数加上增量increment</li>
+<li>zrank key member 返回指定成员的索引</li>
+<li>zrem key member ..移除有序集合中的一个或多个成员</li>
+<li>zrevrank key member 成员的排名 由大到小</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1、排行榜：有序集合经典使用场景。例如视频网站需要对用户上传的视频做排行榜，榜单维护可能是多方面：按照时间、按照播放量、按照获得的赞数等。</span><br><span class="line">2、用Sorted Sets来做带权重的队列，比如普通消息的score为1，重要消息的score为2，然后工作线程可以选择按score的倒序来获取工作任务。让重要的任务优先执行。</span><br></pre></td></tr></table></figure>
+
+<h3 id="描述软件开发生命周期"><a href="#描述软件开发生命周期" class="headerlink" title="描述软件开发生命周期"></a>描述软件开发生命周期</h3><ul>
+<li>可行性与计划研究阶段</li>
+<li>需求分析阶段</li>
+<li>设计阶段</li>
+<li>实现阶段</li>
+<li>测试阶段</li>
+<li>运行与维护阶段</li>
+</ul>
+<h3 id="微服务订阅号、服务号、企业号-区别"><a href="#微服务订阅号、服务号、企业号-区别" class="headerlink" title="微服务订阅号、服务号、企业号 区别"></a>微服务订阅号、服务号、企业号 区别</h3><ul>
+<li>订阅号每天可以群发1条信息  </li>
+<li>服务号每个月群发4条信息</li>
+<li>企业号不能主动关注</li>
+</ul>
+<h2 id="十二、Redis2"><a href="#十二、Redis2" class="headerlink" title="十二、Redis2"></a>十二、Redis2</h2><h3 id="什么是Redis事务，有哪些应用场景？"><a href="#什么是Redis事务，有哪些应用场景？" class="headerlink" title="什么是Redis事务，有哪些应用场景？"></a>什么是Redis事务，有哪些应用场景？</h3><ul>
+<li>Redis事务就是一次性、顺序性、排他性的执行一个队列中的一系列命令。 </li>
+</ul>
+<h3 id="Redis缺点是什么？解决方案"><a href="#Redis缺点是什么？解决方案" class="headerlink" title="Redis缺点是什么？解决方案"></a>Redis缺点是什么？解决方案</h3><ul>
+<li>数据库容量受到物理内存的限制，不能用作海量数据的高性能读写，因此Redis适合的场景主要局限在较小数据量的高性能操作和运算上。<br>Redis 不具备自动容错和恢复功能，主机从机的宕机都会导致前端部分读写请求失败，需要等待机器重启或者手动切换前端的IP才能恢复。<br>主机宕机，宕机前有部分数据未能及时同步到从机，切换IP后还会引入数据不一致的问题，降低了系统的可用性。<br>Redis 较难支持在线扩容，在集群容量达到上限时在线扩容会变得很复杂。为避免这一问题，运维人员在系统上线时必须确保有足够的空间，这对资源造成了很大的浪费。</li>
+</ul>
+<h3 id="Redis持久化机制，以及区别"><a href="#Redis持久化机制，以及区别" class="headerlink" title="Redis持久化机制，以及区别"></a>Redis持久化机制，以及区别</h3><ul>
+<li>RDB（默认） 和 AOF 机制: </li>
+<li>AOF文件比RDB更新频率高，优先使用AOF还原数据。</li>
+<li>AOF比RDB更安全也更大</li>
+<li>RDB性能比AOF好</li>
+<li>如果两个都配了优先加载AOF</li>
+</ul>
+<h3 id="描述Redis缓存雪崩？解决方案"><a href="#描述Redis缓存雪崩？解决方案" class="headerlink" title="描述Redis缓存雪崩？解决方案"></a>描述Redis缓存雪崩？解决方案</h3><ul>
+<li>指缓存同一时间大面积的失效，所以，后面的请求都会落到数据库上，造成数据库短时间内承受大量请求而崩掉。 </li>
+<li>解决方案<pre><code>缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生。
+  一般并发量不是特别多的时候，使用最多的解决方案是加锁排队。
+  给每一个缓存数据增加相应的缓存标记，记录缓存的是否失效，如果缓存标记失效，则更新数据缓存。</code></pre></li>
+</ul>
+<h3 id="描述Redis缓存穿透？解决方案"><a href="#描述Redis缓存穿透？解决方案" class="headerlink" title="描述Redis缓存穿透？解决方案"></a>描述Redis缓存穿透？解决方案</h3><ul>
+<li>指缓存和数据库中都没有的数据，导致所有的请求都落到数据库上，造成数据库短时间内承受大量请求而崩掉。 </li>
+<li>解决方案<pre><code>接口层增加校验，如用户鉴权校验，id做基础校验，id&lt;=0的直接拦截；
+  从缓存取不到的数据，在数据库中也没有取到，这时也可以将key-value对写为key-null，缓存有效时间可以设置短点，如30秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个id暴力攻击
+  采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的 bitmap 中，一个一定不存在的数据会被这个 bitmap 拦截掉，从而避免了对底层存储系统的查询压力</code></pre></li>
+</ul>
+<h3 id="对于热点key，有什么需要注意的？解决方案"><a href="#对于热点key，有什么需要注意的？解决方案" class="headerlink" title="对于热点key，有什么需要注意的？解决方案"></a>对于热点key，有什么需要注意的？解决方案</h3><ul>
+<li>缓存中的一个Key(比如一个促销商品)，在某个时间点过期的时候，恰好在这个时间点对这个Key有大量的并发请求过来，这些请求发现缓存过期一般都会从后端DB加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端DB压垮 </li>
+<li>对缓存查询加锁，如果KEY不存在，就加锁，然后查DB入缓存，然后解锁；其他进程如果发现有锁就等待，然后等解锁后返回数据或者进入DB查询 </li>
+</ul>
+<h3 id="为什么使用Redis-Cluster集群？"><a href="#为什么使用Redis-Cluster集群？" class="headerlink" title="为什么使用Redis Cluster集群？"></a>为什么使用Redis Cluster集群？</h3><ul>
+<li>为了在大流量访问下提供稳定的业务，集群化是存储的必然形态</li>
+<li>未来的发展趋势肯定是云计算和大数据的紧密结合 </li>
+<li>只有分布式架构能满足要求</li>
+</ul>
+<h3 id="Redis-Cluster集群的特点？"><a href="#Redis-Cluster集群的特点？" class="headerlink" title="Redis Cluster集群的特点？"></a>Redis Cluster集群的特点？</h3><ul>
+<li><h3 id="什么时候判断master节点不可用？什么时候Redis-Cluster集群不可用？"><a href="#什么时候判断master节点不可用？什么时候Redis-Cluster集群不可用？" class="headerlink" title="什么时候判断master节点不可用？什么时候Redis Cluster集群不可用？"></a>什么时候判断master节点不可用？什么时候Redis Cluster集群不可用？</h3></li>
+<li></li>
+</ul>
+<h3 id="Redis数据淘汰策略是什么？"><a href="#Redis数据淘汰策略是什么？" class="headerlink" title="Redis数据淘汰策略是什么？"></a>Redis数据淘汰策略是什么？</h3><ul>
+<li></li>
+</ul>
+<h2 id="十三、MySQL1"><a href="#十三、MySQL1" class="headerlink" title="十三、MySQL1"></a>十三、MySQL1</h2><h3 id="列出5个你所熟悉的CSS样式"><a href="#列出5个你所熟悉的CSS样式" class="headerlink" title="列出5个你所熟悉的CSS样式"></a>列出5个你所熟悉的CSS样式</h3><ul>
+<li><strong>font-size、font-style、font-family、background-color、width、height</strong></li>
+</ul>
+<h3 id="描述主键、外键、候选主键、超键是什么"><a href="#描述主键、外键、候选主键、超键是什么" class="headerlink" title="描述主键、外键、候选主键、超键是什么"></a>描述主键、外键、候选主键、超键是什么</h3><ul>
+<li><p>主 键：数据库表中对储存数据对象予以唯一和完整标识的数据列或属性的组合。一个数据列只能有一个主键，且主键的取值不能缺失，即不能为空值（Null）。</p>
+</li>
+<li><p>超 键：在关系中能唯一标识元组的属性集称为关系模式的超键。一个属性可以为作为一个超键，多个属性组合在一起也可以作为一个超键。超键包含候选键和主键。</p>
+</li>
+<li><p>候选键：是最小超键，即没有冗余元素的超键。</p>
+</li>
+<li><p>外 键：在一个表中存在的另一个表的主键称此表的外键。</p>
+</li>
+</ul>
+<h3 id="drop-delete与truncate的区别"><a href="#drop-delete与truncate的区别" class="headerlink" title="drop,delete与truncate的区别"></a>drop,delete与truncate的区别</h3><ul>
+<li>在速度上，一般来说，drop&gt; truncate &gt; delete。</li>
+<li>在使用drop和truncate时一定要注意，虽然可以恢复，但为了减少麻烦，还是要慎重。</li>
+<li>如果想删除部分数据用delete，注意带上where子句，回滚段要足够大；</li>
+<li>如果想删除表，当然用drop； </li>
+<li>如果想保留表而将所有数据删除，如果和事务无关，用truncate即可；</li>
+<li>如果和事务有关，或者想触发trigger，还是用delete；</li>
+<li>如果是整理表内部的碎片，可以用truncate跟上reuse stroage，再重新导入/插入数据</li>
+</ul>
+<h3 id="SQL-UNION-和-UNION-ALL-区别"><a href="#SQL-UNION-和-UNION-ALL-区别" class="headerlink" title="SQL UNION 和 UNION ALL 区别"></a>SQL UNION 和 UNION ALL 区别</h3><ul>
+<li>UNION用的比较多union all是直接连接，取到得是所有值，记录可能有重复   union 是取唯一值，记录没有重复  </li>
+<li>对重复结果的处理：UNION在进行表链接后会筛选掉重复的记录，Union All不会去除重复记录。</li>
+<li>对排序的处理：Union将会按照字段的顺序进行排序；UNION ALL只是简单的将两个结果合并后就返回。</li>
+</ul>
+<h3 id="exists、in、any、all区别"><a href="#exists、in、any、all区别" class="headerlink" title="exists、in、any、all区别"></a>exists、in、any、all区别</h3><ul>
+<li>使用in的时候，会把子句中的查询作为结果缓存下来，然后对主查询中的每个记录进行查询。</li>
+<li>使用exists的时候，不在对子查询的结果进行缓存，子查询的返回的结果并不重要。使用exists的时候，我们使先对主查询进行查询，然后根据子查询的结果是否为真来决定是否返回。在使用exists的时候，如果子查询返回结果集的时候为真，主查询返回结果。在使用not exists的时候，如果子查询不返回结果集，那么主查询为真，返回结果。</li>
+<li>any：这里的any不能翻译为任何，就像英文中一样，这里的any和some一样表示满足一个条件，只是any长用于非“=”的情况，例如&lt;&gt;any &gt;any将好比英文中，any用于疑问句</li>
+<li>all：货真价实的所以，要满足子查询中所有的情况</li>
+</ul>
+<h3 id="sql语句的执行顺序"><a href="#sql语句的执行顺序" class="headerlink" title="sql语句的执行顺序"></a>sql语句的执行顺序</h3><ul>
+<li>执行顺序：from… where…group by… having…. select … order by… limit</li>
+</ul>
+<h3 id="count-和count-1-和count-id-区别"><a href="#count-和count-1-和count-id-区别" class="headerlink" title="count(*)和count(1)和count(id)区别"></a>count(*)和count(1)和count(id)区别</h3><ul>
+<li><p>count(id),根据id主键取值，累加返回值，也是server层 “ +1 ”</p>
+<p>count(1)，同样会遍历，但不取值，引擎告诉不为空那我就 “+1”</p>
+<p>count(*),也不取值，而且人家还是经过优化的</p>
+</li>
+</ul>
+<h3 id="SQL语句优化（不少于6条）"><a href="#SQL语句优化（不少于6条）" class="headerlink" title="SQL语句优化（不少于6条）"></a>SQL语句优化（不少于6条）</h3><ul>
+<li><p>应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描</p>
+<p>应尽量避免在 where 子句中使用 or 来连接条件</p>
+<p>尽量避免在where子句中对字段进行函数操作</p>
+<p>任何地方都不要使用 select * ，用具体的字段列表代替“*”，不要返回用不到的任何字段</p>
+<p>尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，<br>其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
+<p>尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</p>
+<p>尽量避免大事务操作，提高系统并发能力</p>
+</li>
+</ul>
+<h3 id="SQL常用函数有哪些？"><a href="#SQL常用函数有哪些？" class="headerlink" title="SQL常用函数有哪些？"></a>SQL常用函数有哪些？</h3><ul>
+<li>AVG、COUNT、MAX、MIN、SUM、DAY、</li>
+</ul>
+<h3 id="SQL中用于拼接字符串的语句是？"><a href="#SQL中用于拼接字符串的语句是？" class="headerlink" title="SQL中用于拼接字符串的语句是？"></a>SQL中用于拼接字符串的语句是？</h3><ul>
+<li>SQL Server中没有concat函数（SQL Server 2012已新增concat函数）。oracle和mysql中虽然都有concat，但是oracle中只能拼接2个字符串，所以建议用||的方式；mysql中的concat则可以拼接多个字符串。</li>
+</ul>
+<h3 id="左连接-右连接-内连接的区别"><a href="#左连接-右连接-内连接的区别" class="headerlink" title="左连接 右连接 内连接的区别"></a>左连接 右连接 内连接的区别</h3><ul>
+<li><p>左连接：左边有的，右边没有的为null</p>
+<p>右连接：左边没有的，右边有的为null</p>
+<p>内连接：显示左边右边共有的</p>
+</li>
+</ul>
+<h2 id="十四、MySQL2"><a href="#十四、MySQL2" class="headerlink" title="十四、MySQL2"></a>十四、MySQL2</h2><h3 id="描述http生命周期"><a href="#描述http生命周期" class="headerlink" title="描述http生命周期"></a>描述http生命周期</h3><ul>
+<li>客户端连接到Web服务器</li>
+<li>发送HTTP请求</li>
+<li>服务器接受请求并返回HTTP响应</li>
+<li>释放连接TCP连接</li>
+<li>客户端浏览器解析HTML内容</li>
+</ul>
+<h3 id="SQL语句优化（不少于6条）-1"><a href="#SQL语句优化（不少于6条）-1" class="headerlink" title="SQL语句优化（不少于6条）"></a>SQL语句优化（不少于6条）</h3><ul>
+<li>对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。 </li>
+<li>应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描 </li>
+<li>避免在where子句中使用or来连接条件，如果一个字段有索引，一个字段没有索引，将导致引擎放弃使用索引而进行全表扫描 </li>
+<li>前导模糊查询将导致全表扫描  </li>
+<li>对于多张大数据量（这里几百条就算大了）的表JOIN，要先分页再JOIN，否则逻辑读会很高，性能很差。 </li>
+<li>尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。 </li>
+</ul>
+<h3 id="mysql-explain是什么？有什么作用？描述下type"><a href="#mysql-explain是什么？有什么作用？描述下type" class="headerlink" title="mysql explain是什么？有什么作用？描述下type"></a>mysql explain是什么？有什么作用？描述下type</h3><ul>
+<li>显示了mysql如何使用索引来处理select语句以及连接表，可以帮助选择更好的索引和写出更优化的查询语句 </li>
+<li>这里的type官方全称是“join type”，意思是“连接类型”,这样很容易给人一种错觉觉得必须需要俩个表以上才有连接类型。事实上这里的连接类型并非字面那样的狭隘，它更确切的说是一种数据库引擎查找表的一种方式，在《高性能mysql》一书中作者更是觉得称呼它为访问类型更贴切一些。 </li>
+</ul>
+<h3 id="mysql中有哪几种锁？表锁、行锁、页锁区别？"><a href="#mysql中有哪几种锁？表锁、行锁、页锁区别？" class="headerlink" title="mysql中有哪几种锁？表锁、行锁、页锁区别？"></a>mysql中有哪几种锁？表锁、行锁、页锁区别？</h3><ul>
+<li><p>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高。 </p>
+</li>
+<li><p>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发出锁冲突的概率最高，并发度最低。</p>
+</li>
+<li><p>页级锁：是MySQL中锁定粒度介于行级锁和表级锁中间的一种锁。表级锁速度快，但冲突多，行级冲突少，但速度慢。</p>
+</li>
+</ul>
+<h3 id="悲观锁-乐观锁-的区别"><a href="#悲观锁-乐观锁-的区别" class="headerlink" title="悲观锁 乐观锁 的区别"></a>悲观锁 乐观锁 的区别</h3><ul>
+<li><p>悲观锁：假定会发生并发冲突，屏蔽一切可能违反数据完整性的操作。在查询完数据的时候就把事务锁起来，直到提交事务。实现方式：使用数据库中的锁机制 </p>
+</li>
+<li><p>乐观锁：假设不会发生并发冲突，只在提交操作时检查是否违反数据完整性。在修改数据的时候把事务锁起来，通过version的方式来进行锁定。实现方式：一般会使用版本号机制或 CAS算法实现。</p>
+</li>
+</ul>
+<h3 id="什么是索引？"><a href="#什么是索引？" class="headerlink" title="什么是索引？"></a>什么是索引？</h3><ul>
+<li>索引是一种特殊的文件，它们包含着对数据表里所有记录的引用指针。</li>
+<li>索引是一种数据结构。数据库索引，是数据库管理系统中一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引的实现通常使用B树及其变种B+树。</li>
+</ul>
+<h3 id="索引的种类有哪些，区别是什么？"><a href="#索引的种类有哪些，区别是什么？" class="headerlink" title="索引的种类有哪些，区别是什么？"></a>索引的种类有哪些，区别是什么？</h3><ul>
+<li><p>主键索引: 数据列不允许重复，不允许为NULL，一个表只能有一个主键。</p>
+</li>
+<li><p>唯一索引: 数据列不允许重复，允许为NULL值，一个表允许多个列创建唯一索引。</p>
+</li>
+<li><p>普通索引: 基本的索引类型，没有唯一性的限制，允许为NULL值。</p>
+</li>
+<li><p>全文索引： 是目前搜索引擎使用的一种关键技术。可以通过ALTER TABLE table_name ADD FULLTEXT (column);创建全文索引</p>
+</li>
+</ul>
+<h3 id="描述索引的优缺点"><a href="#描述索引的优缺点" class="headerlink" title="描述索引的优缺点?"></a>描述索引的优缺点?</h3><ul>
+<li>优点：可以大大加快数据的检索速度；通过使用索引，可以在查询的过程中，使用优化隐藏器，提高系统的性能。</li>
+<li>缺点：创建索引和维护索引要耗费时间；当对表中的数据操作时，会降低增/改/删的执行效率；索引需要占物理空间。</li>
+</ul>
+<h3 id="设计索引的原则？-不少于4条"><a href="#设计索引的原则？-不少于4条" class="headerlink" title="设计索引的原则？(不少于4条)"></a>设计索引的原则？(不少于4条)</h3><ul>
+<li>适合索引的列是出现在where子句中的列，或者连接子句中指定的列</li>
+<li>基数较小的列，索引效果较差，没有必要在此列建立索引</li>
+<li>使用短索引，如果对长字符串列进行索引，应该指定一个前缀长度，这样能够节省大量索引空间</li>
+<li>不要过度索引。索引需要额外的磁盘空间，并降低写操作的性能。在修改表内容的时候，索引会进行更新甚至重构，索引列越多，这个时间就会越长。所以只保持需要的索引有利于查询即可</li>
+</ul>
+<h3 id="什么情况下索引会失效？（不少于4条）"><a href="#什么情况下索引会失效？（不少于4条）" class="headerlink" title="什么情况下索引会失效？（不少于4条）"></a>什么情况下索引会失效？（不少于4条）</h3><ul>
+<li>如果条件中有or，即使其中有条件带索引也不会使用(这也是为什么尽量少用or的原因)<br>注意：要想使用or，又想让索引生效，只能将or条件中的每个列都加上索引</li>
+<li>对于多列索引，不是使用的第一部分，则不会使用索引</li>
+<li>like查询是以%开头，索引失效；以%结尾，索引有效</li>
+<li>如果列类型是字符串，那一定要在条件中将数据使用引号引用起来,否则不使用索引</li>
+<li>如果mysql估计使用全表扫描要比使用索引快,则不使用索引</li>
+</ul>
+<h3 id="数据库优化方案？（至少3条）"><a href="#数据库优化方案？（至少3条）" class="headerlink" title="数据库优化方案？（至少3条）"></a>数据库优化方案？（至少3条）</h3><p><img src= "/img/loading.gif" data-src="https://gitee.com/flashwk/TyporaPic/raw/master/TyporaImg/image-20200728143731781.png" alt="image-20200728143731781"></p>
+<ul>
+<li><strong>将字段很多的表分解成多个表</strong><br>对于字段较多的表，如果有些字段的使用频率很低，可以将这些字段分离出来形成新表。<br>因为当一个表的数据量很大时，会由于使用频率低的字段的存在而变慢。</li>
+<li><strong>增加冗余字段</strong><br>设计数据表时应尽量遵循范式理论的规约，尽可能的减少冗余字段，让数据库设计看起来精致、优雅。但是，合理的加入冗余字段可以提高查询速度。</li>
+<li><strong>增加中间表</strong><br> 常联合查询的表，可以建立中间表以提高查询效率。<br>通过建立中间表，将需要通过联合查询的数据插入到中间表中，然后将原来的联合查询改为对中间表的查询。</li>
+</ul>
+<h3 id="什么是存储过程？有什么优缺点？"><a href="#什么是存储过程？有什么优缺点？" class="headerlink" title="什么是存储过程？有什么优缺点？"></a>什么是存储过程？有什么优缺点？</h3><ul>
+<li>存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需要创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。</li>
+<li>优点：是预编译过的，执行效率高；存储过程的代码直接存放于数据库中，通过存储过程名直接调用，减少网络通讯；安全性高，执行存储过程需要有一定权限的用户；存储过程可以重复使用，减少数据库开发人员的工作量。</li>
+<li>缺点：调试麻烦；移植问题；重新编译问题；如果在一个程序系统中大量的使用存储过程，到程序交付使用的时候随着用户需求的增加会导致数据结构的变化，接着就是系统的相关问题了，最后如果用户想维护该系统可以说是很难很难、而且代价是空前的，维护起来更麻烦。</li>
+</ul>
+<h3 id="什么是视图，视图有什么作用？"><a href="#什么是视图，视图有什么作用？" class="headerlink" title="什么是视图，视图有什么作用？"></a>什么是视图，视图有什么作用？</h3><ul>
+<li>视图就是基于SQL语句的结果集的可视化的表。不过视图是一个虚拟的表，是一个表中的 数据经过某种筛选后的显示方式，视图由一个预定义的查询select语句组成。。 </li>
+<li>视图根本用途：简化sql查询，提高开发效率。如果说还有另外一个用途那就是兼容老的表结构。</li>
+<li>重用SQL语句；</li>
+<li>简化复杂的SQL操作。在编写查询后，可以方便的重用它而不必知道它的基本查询细节；</li>
+<li>使用表的组成部分而不是整个表；</li>
+<li>保护数据。可以给用户授予表的特定部分的访问权限而不是整个表的访问权限；</li>
+<li>更改数据格式和表示。视图可返回与底层表的表示和格式不同的数据</li>
+</ul>
+<h2 id="十五、oauth"><a href="#十五、oauth" class="headerlink" title="十五、oauth"></a>十五、oauth</h2><h3 id="Session-和-Cookie-的区别"><a href="#Session-和-Cookie-的区别" class="headerlink" title="Session 和 Cookie 的区别"></a>Session 和 Cookie 的区别</h3><ul>
+<li>session保存在服务器，客户端不知道其中的信息；cookie保存在客户端，服务器能够知道其中的信息。 </li>
+<li>session中保存的是对象，cookie中保存的是字符串。 </li>
+<li>session不能区分路径，同一个用户在访问一个网站期间，所有的session在任何一个地方都可以访问到。而cookie中如果设置了路径参数，那么同一个网站中不同路径下的cookie互相是访问不到的。 </li>
+<li>session需要借助cookie才能正常，如果客户端完全禁止cookie，session将失效。</li>
+</ul>
+<h3 id="JWT-和-Session-的区别？"><a href="#JWT-和-Session-的区别？" class="headerlink" title="JWT 和 Session 的区别？"></a>JWT 和 Session 的区别？</h3><ul>
+<li>主要区别就是用户的状态保存的位置，Session 是保存在服务端，而 JWT 是保存在客户端。 </li>
+<li>Session 需要做多机数据共享，通常可以存在数据库或者 Redis 里面。而 JWT 不需要。</li>
+<li>JWT 是使用 base64 编码的，并没有加密，因此 JWT 中不能存储敏感数据。而 Session 的信息是存在服务端的，相对来说更安全。</li>
+</ul>
+<h3 id="JAVA代码的优化方案-原则（不少于3个）"><a href="#JAVA代码的优化方案-原则（不少于3个）" class="headerlink" title="JAVA代码的优化方案/原则（不少于3个）"></a>JAVA代码的优化方案/原则（不少于3个）</h3><ul>
+<li>不可随意使用静态变量，尽量使用局部变量</li>
+<li>减少对变量的重复计算</li>
+<li>使用 finally 来确保资源关闭</li>
+<li>根据业务使用场景，尽量避免在循环中 new 对象</li>
+</ul>
+<h3 id="多个if-else，如何优化？"><a href="#多个if-else，如何优化？" class="headerlink" title="多个if else，如何优化？"></a>多个if else，如何优化？</h3><ul>
+<li>通过策略模式将 else 里的语句拆分成多个方法，然后将实现类都交给Spring容器管理，当需要使用的时候直接从容器中获取。</li>
+<li>便于后期维护和扩展。</li>
+</ul>
+<h3 id="常用的监听器有哪些？"><a href="#常用的监听器有哪些？" class="headerlink" title="常用的监听器有哪些？"></a>常用的监听器有哪些？</h3><ul>
+<li>ServletContextListener 服务器启动创建，服务器关闭销毁</li>
+<li>HttpSessionListener 监听Session</li>
+<li>HttpSessionBindingListener  对session绑定对象（setAttribute）过程的一种监听类型</li>
+<li>ServletRequestListener  对request的监听</li>
+</ul>
+<h3 id="监听器、过滤器、拦截器-区别？"><a href="#监听器、过滤器、拦截器-区别？" class="headerlink" title="监听器、过滤器、拦截器 区别？"></a>监听器、过滤器、拦截器 区别？</h3><ul>
+<li>监听器(listener)：就是对项目起到监听的作用，它能感知到包括 request，session 和 applicaiton 的初始化和属性的变化</li>
+<li>过滤器是 Servlet 规定的可用于所有的 Web 程序，拦截器是 spring 的组件，只能用于spring</li>
+<li>过滤器在 Servlet 之前调用，拦截器在 Servlet 内部调用，可以被多次调用，更加灵活，并且可以获取到 IoC 容器中的各个 bean</li>
+</ul>
+<h3 id="oauth2-0是什么"><a href="#oauth2-0是什么" class="headerlink" title="oauth2.0是什么?"></a>oauth2.0是什么?</h3><ul>
+<li><p>OAuth是一个关于授权（authorization）的开放网络标准</p>
+</li>
+<li><p>允许用户提供一个令牌，而不是用户名和密码来访问他们存放在特定服务提供者的数据</p>
+</li>
+<li><p>OAuth 2.0 提供一种无需加密的认证方式，此方式是基于现存的cookie验证架构，token本身将自己作为secret，通过HTTPS发送，从而替换了通过 HMAC和token secret加密并发送的方式，这将允许使用cURL发起APIcall和其他简单的脚本工具而不需遵循原先的request方式并进行签名。</p>
+</li>
+</ul>
+<h3 id="oauth2-0四种授权码模式是什么？"><a href="#oauth2-0四种授权码模式是什么？" class="headerlink" title="oauth2.0四种授权码模式是什么？"></a>oauth2.0四种授权码模式是什么？</h3><ul>
+<li><h4 id="隐式授权模式（Implicit-Grant）"><a href="#隐式授权模式（Implicit-Grant）" class="headerlink" title="隐式授权模式（Implicit Grant）"></a>隐式授权模式（Implicit Grant）</h4></li>
+<li><h4 id="授权码授权模式（Authorization-code-Grant）"><a href="#授权码授权模式（Authorization-code-Grant）" class="headerlink" title="授权码授权模式（Authorization code Grant）"></a>授权码授权模式（Authorization code Grant）</h4></li>
+<li><h4 id="密码模式（Resource-Owner-Password-Credentials-Grant）"><a href="#密码模式（Resource-Owner-Password-Credentials-Grant）" class="headerlink" title="密码模式（Resource Owner Password Credentials Grant）"></a>密码模式（Resource Owner Password Credentials Grant）</h4></li>
+<li><h4 id="客户端凭证模式（Client-Credentials-Grant）"><a href="#客户端凭证模式（Client-Credentials-Grant）" class="headerlink" title="客户端凭证模式（Client Credentials Grant）"></a>客户端凭证模式（Client Credentials Grant）</h4></li>
+</ul>
+<h3 id="描述数据库设计的基本流程"><a href="#描述数据库设计的基本流程" class="headerlink" title="描述数据库设计的基本流程"></a>描述数据库设计的基本流程</h3><ul>
+<li>需求分析</li>
+<li>概念结构设计</li>
+<li>逻辑结构设计</li>
+<li>物理结构设计</li>
+<li>数据库的建立和测试</li>
+<li>数据库运行和维护</li>
+</ul>
+<h2 id="十六、"><a href="#十六、" class="headerlink" title="十六、"></a>十六、</h2><h3 id="Session和Cookie的区别-2-3条）"><a href="#Session和Cookie的区别-2-3条）" class="headerlink" title="Session和Cookie的区别(2-3条）?"></a>Session和Cookie的区别(2-3条）?</h3><ul>
+<li>session保存在服务器，客户端不知道其中的信息；cookie保存在客户端，服务器能够知道其中的信息。 </li>
+<li>session中保存的是对象，cookie中保存的是字符串。 </li>
+<li>session不能区分路径，同一个用户在访问一个网站期间，所有的session在任何一个地方都可以访问到。而cookie中如果设置了路径参数，那么同一个网站中不同路径下的cookie互相是访问不到的。 </li>
+<li>session需要借助cookie才能正常，如果客户端完全禁止cookie，session将失效。</li>
+</ul>
+<h3 id="JWT和Session的区别-2-3条）？"><a href="#JWT和Session的区别-2-3条）？" class="headerlink" title="JWT和Session的区别(2-3条）？"></a>JWT和Session的区别(2-3条）？</h3><ul>
+<li>主要区别就是用户的状态保存的位置，Session 是保存在服务端，而 JWT 是保存在客户端。 </li>
+<li>JWT 可扩展性比session好，Session 需要做多机数据共享，通常可以存在数据库或者 Redis 里面。而 JWT 不需要。</li>
+<li>JWT 是使用 base64 编码的，并没有加密，因此 JWT 中不能存储敏感数据。而 Session 的信息是存在服务端的，相对来说更安全。</li>
+</ul>
+<h3 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h3><ul>
+<li>首先加载servlet的class，实例化servlet，然后初始化servlet调用init()的方法，接着调用服务的service的方法处理doGet和doPost方法，最后关闭时调用destroy方法销毁。</li>
+</ul>
+<h3 id="Servlet作用域"><a href="#Servlet作用域" class="headerlink" title="Servlet作用域"></a>Servlet作用域</h3><ul>
+<li>application：全局作用范围，整个应用程序共享，就是在部署文件中的同一个webApp共享，生命周期为：应用程序启动到停止。</li>
+<li>session：会话作用域，当用户首次访问时，产生一个新的会话，以后服务器就可以记住这个会话状态。生命周期：会话超时，或者服务器端强制使会话失效。</li>
+<li>request：请求作用域，就是客户端的一次请求。</li>
+<li>page：一个JSP页面。</li>
+</ul>
+<h3 id="Servlet九大内置对象"><a href="#Servlet九大内置对象" class="headerlink" title="Servlet九大内置对象"></a>Servlet九大内置对象</h3><ul>
+<li><table>
+<thead>
+<tr>
+<th align="center">request</th>
+<th align="center">转译后对应HttpServletRequest/ServletRequest对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">response</td>
+<td align="center">转译后对应HttpServletRespons/ServletResponse对象</td>
+</tr>
+<tr>
+<td align="center">session</td>
+<td align="center">转译后对应HttpSession对象</td>
+</tr>
+<tr>
+<td align="center">application</td>
+<td align="center">转译后对应ServletContext对象</td>
+</tr>
+<tr>
+<td align="center">out</td>
+<td align="center">转译后对应JspWriter对象，其内部关联一个PringWriter对象</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">转译后对应this</td>
+</tr>
+<tr>
+<td align="center">config</td>
+<td align="center">转译后对应ServletConfig对象</td>
+</tr>
+<tr>
+<td align="center">exception</td>
+<td align="center">转译后对应Throwable对象，代表由其他JSP页面抛出的异常对象，只会出现于JSP错误页面(isErrorPage设置为true的JSP页面)</td>
+</tr>
+<tr>
+<td align="center">pageContext</td>
+<td align="center">转译后对应PageContext对象，它提供了JSP页面资源的封装，并可设置页面范围属性</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="Redis-set类型的常用命令（5个）"><a href="#Redis-set类型的常用命令（5个）" class="headerlink" title="Redis set类型的常用命令（5个）"></a>Redis set类型的常用命令（5个）</h3><ul>
+<li>sadd key 添加</li>
+<li>scard key 获取集合的成员数</li>
+<li>smembers key返回集合中的所有成员</li>
+<li>spop key 移除并返回集合中的一个随机元素</li>
+<li>srandmember key [count] 返回集合中一个或多个随机数</li>
+</ul>
+<h3 id="Oauth2-0的执行流程"><a href="#Oauth2-0的执行流程" class="headerlink" title="Oauth2.0的执行流程?"></a>Oauth2.0的执行流程?</h3><ul>
+<li>请求授权</li>
+<li>同意授权</li>
+<li>根据 code 发送请求</li>
+<li>返回 accessToken</li>
+<li>带这accessToken请求</li>
+<li>得到资源信息</li>
+</ul>
+<h3 id="Oauth2-0四种授权模式是什么？"><a href="#Oauth2-0四种授权模式是什么？" class="headerlink" title="Oauth2.0四种授权模式是什么？"></a>Oauth2.0四种授权模式是什么？</h3><ul>
+<li>隐式授权模式（Implicit Grant）</li>
+<li>授权码授权模式（Authorization code Grant）</li>
+<li>密码模式（Resource Owner Password Credentials Grant）</li>
+<li>客户端凭证模式（Client Credentials Grant）</li>
+</ul>
+<p><img src= "/img/loading.gif" data-src="https://gitee.com/flashwk/TyporaPic/raw/master/TyporaImg/image-20200727100232407.png" alt="image-20200727100232407"></p>
+<p><img src= "/img/loading.gif" data-src="https://gitee.com/flashwk/TyporaPic/raw/master/TyporaImg/image-20200728142756825.png" alt="image-20200728142756825"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>面试题</tag>
+      </tags>
+  </entry>
 </search>
