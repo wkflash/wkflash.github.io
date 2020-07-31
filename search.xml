@@ -296,7 +296,7 @@
   </entry>
   <entry>
     <title>多线程</title>
-    <url>/2017/04/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%20/</url>
+    <url>/2017/04/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<p><img src= "/img/loading.gif" data-src="https://gitee.com/flashwk/TyporaPic/raw/master/TyporaImg/11224747-a13a62504f1c47c2.webp" alt="11224747-a13a62504f1c47c2"></p>
 <h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><h3 id="什么是线程？线程和进程的区别？"><a href="#什么是线程？线程和进程的区别？" class="headerlink" title="什么是线程？线程和进程的区别？"></a>什么是线程？线程和进程的区别？</h3><ul>
 <li>线程是CPU调度的最小单位，进程是系统进行资源分配的基本单位</li>
